@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Guess the Number</title>
+	</head>
+	
+	<body>
+		<h3 id="text1"></h3>
+		<h3 id="text2"></h3>
+		<!-- In this example we implemented the onClick event of the buttons directly on the html-->
+		<button id="yes" onClick="min=current; update();">Yes</button>
+		<button id="no" onClick="max=current; update();">No</button>
+	</body>
+	
+	<script>
+		// Variables		
+		var min = 1, max = 100;
+		var current;
+		
+		function update() {
+			// The current guess is the number between 
+			current = Math.floor((min + max)/2);
+			
+			// If the max and min converge we have found the answer
+			if (max - min <= 1) {
+				document.getElementById('text1').innerHTML = 'Your number is ' + max;
+				document.getElementById('text2').innerHTML = '';
+			} 
+			// Else, we need to ask another question
+			else {
+				document.getElementById('text1').innerHTML = 'Think of a number from 1 to 100';
+				document.getElementById('text2').innerHTML = 'Is it bigger than ' + current + '?';
+			}			
+		}
+		update();
+		
+	</script>
+</html>

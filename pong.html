@@ -1,0 +1,118 @@
+<html>
+	<head>
+		<title>Pong</title>
+	</head>
+
+	<script src="p5.js"></script>
+	<script>
+		// Variables
+		var ball = {}
+		var padLeft = {};
+		var padRight = {};
+		var padSpeed = 5;
+		var ballSpeed = 3;
+		
+		// Function to reset the ball
+		function resetBall() {
+			// Place the ball at the center of the screen
+			ball.x = width / 2;
+			ball.y = height / 2;
+			// Flip the direction the ball is going
+			ball.vx = -ball.vx; 
+			// Send the ball in a random direction
+			ball.vy = random(-ballSpeed,ballSpeed);
+		}
+		
+		// Function to check if a given point is inside a given rectangle
+		function pointInsideRectangle(point_x,point_y,  rect_x,rect_y,rect_w,rect_h) {
+			var overlaps_x = point_x >= rect_x && point_x <= rect_x + rect_w;
+			var overlaps_y = point_y >= rect_y && point_y <= rect_y + rect_h;
+			return overlaps_x && overlaps_y;
+		}
+		
+		function setup() {
+			createCanvas(480,320);
+			
+			// Set the ball's initial speed and reset it
+			ball.vx = ballSpeed;
+			resetBall();						
+			
+			// Set the size of the pads
+			padLeft.h = padRight.h = 64;
+			padLeft.w = padRight.w = 16;
+			
+			// Set the position of the pads
+			padLeft.x = 32;
+			padLeft.y = height/2 - padLeft.h/2; 
+			
+			padRight.x = width - 32 - padRight.w;
+			padRight.y = height/2 - padRight.h/2;
+			
+			// Reset the score
+			padLeft.score = 0;
+			padRight.score = 0;			
+		}
+		
+		function draw() {
+		// Update
+			// Ball movement
+			ball.x += ball.vx;
+			ball.y += ball.vy;
+			
+			// Pad movement
+			if (keyIsDown(SHIFT)) padLeft.y -= padSpeed;
+			if (keyIsDown(CONTROL)) padLeft.y += padSpeed;
+			if (keyIsDown(UP_ARROW)) padRight.y -= padSpeed;
+			if (keyIsDown(DOWN_ARROW)) padRight.y += padSpeed;
+			
+			// Ball Bounds
+			// Left
+			if (ball.x < 0) {
+				padRight.score++;
+				resetBall();
+			}
+			// Right
+			if (ball.x > width) {
+				padLeft.score++;
+				resetBall();
+			}
+			// Top and Bottom
+			if (ball.y < 0 || ball.y > height) ball.vy = -ball.vy;
+			
+			// Pad Bounds
+			padLeft.y = constrain(padLeft.y,0,height-padLeft.h);
+			padRight.y = constrain(padRight.y,0,height-padRight.h);
+			
+			// Pad impacts
+			// Right pad
+			if (ball.vx > 0 && pointInsideRectangle(ball.x, ball.y, padRight.x,padRight.y,padRight.w,padRight.h)) {	
+				// Reverse the ball's speed along the x-axis
+				ball.vx = -ball.vx; 
+				// Set a new vertical speed based on where the ball hit on the pad
+				ball.vy =  map(ball.y - padRight.y, 0,padRight.h, -ballSpeed,ballSpeed); 
+			}
+			// Left pad
+			if (ball.vx < 0 && pointInsideRectangle(ball.x, ball.y, padLeft.x,padLeft.y,padLeft.w,padLeft.h)) {
+				// Same as above
+				ball.vx = -ball.vx;
+				ball.vy = map(ball.y - padLeft.y, 0,padLeft.h, -ballSpeed,ballSpeed); 
+			}
+		
+			
+		// Draw
+			background(0,0,0);
+			// Ball
+			ellipse(ball.x, ball.y, 16, 16);
+			
+			// Pads
+			rect(padLeft.x, padLeft.y, padLeft.w, padLeft.h);
+			rect(padRight.x, padRight.y, padRight.w, padLeft.h);
+			
+			// Score
+			textSize(32);
+			textAlign(CENTER);
+			fill(255,255,255);
+			text(padLeft.score + ' - ' + padRight.score, width/2, 32);
+		}
+	</script>
+</html>

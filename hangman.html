@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<title>Hangman</title>
+	</head>
+	
+	<body>
+		<h1 id="word"></h1> 
+		<h3 id="fails"><h3>
+		<input id="letter" type="text" maxlength="1">
+		<button id="try">Try</button>
+		<h3 id="result"></h3>
+	</body>
+	
+	<script>
+		// Variables
+		var words = ['abacate','banana','cereja'];
+		var solution = words[Math.floor(Math.random()*words.length)];
+		var word = '*'.repeat(solution.length);
+		var fails = [];
+		var maxFails = 4;
+		
+		// Function to set/reset the HTML elements
+		function resetInterface() {
+			// Set the word element's text
+			document.getElementById('word').innerHTML = word;
+			// Reset the letter input
+			document.getElementById('letter').value = '';
+			
+			// Set the number of fails element's text
+			if (fails.length > 0) {
+				document.getElementById('fails').innerHTML = 'Fails: ' + fails.toString() + ' (' + fails.length + '/' + maxFails + ')';
+			} else 
+				document.getElementById('fails').innerHTML = '';
+			
+			// Set the result element's text
+			if (fails.length > maxFails)
+				document.getElementById('result').innerHTML = 'You lose! The word was \"' + solution + '\"';
+			else if (word == solution) 
+				document.getElementById('result').innerHTML = 'You win!';
+		}
+		
+		// "Try" button's click event
+		document.getElementById('try').addEventListener('click', function() {
+			// Get the letter from the input element
+			var letter = document.getElementById('letter').value;
+			
+			if (letter == '') return; // Ignore it if it's empty
+			var success = false; // Assume it is a fail
+			
+			// Iterate over the solution's letters and see if the input letter is there
+			for(var i = 0; i < word.length; i++) {
+				if (solution[i] == letter) { 
+					// Lable this letter as a success
+					success = true;
+					// Replace the corresponding '*' on the game word
+					word = word.substring(0,i) + letter + word.substring(i+1,word.length);
+				}
+			}
+			
+			if (!success) fails.push(letter); // In case of fail, add this letter to fail list
+			
+			// Refresh the interface with the new values
+			resetInterface();
+		});
+		
+		resetInterface();
+	</script>
+</html>
