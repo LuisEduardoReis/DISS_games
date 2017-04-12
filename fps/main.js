@@ -5,18 +5,21 @@ var levelImage;
 var level;
 var player;
 var bullets;
+var demons;
 
 function preload() {
 	levelImage = loadImage("map.bmp");
 	stoneTex = loadImage("stone.png");
+	demonTex = loadImage("demon.jpg");
 }
 
 function setup() {
 	createCanvas(320, 240, WEBGL);
 
-	level = new Level(levelImage);
-	player = new Player();
 	bullets = [];
+	demons = [];
+	level = new Level(levelImage);
+	player = new Player();	
 	
 	perspective(radians(60), width/height, 0.1,1000);	
 	ambientLight(255);
@@ -39,6 +42,7 @@ function draw() {
 	
 	// update
 	player.update();
+	for(var i = 0; i < demons.length; i++)	demons[i].update();
 	for(var i = 0; i < bullets.length; i++)	bullets[i].update();
 	
 	bullets = bullets.filter(function (e) {return !e.remove;})
@@ -49,6 +53,7 @@ function draw() {
 	camera(player.x,TILE_SIZE/2,player.y);
 	
 	level.display();  
+	for(var i = 0; i < demons.length; i++) demons[i].display();
 	for(var i = 0; i < bullets.length; i++) bullets[i].display();
 }
 

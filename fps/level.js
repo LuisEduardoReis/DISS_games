@@ -22,18 +22,24 @@ function Level(img) {
 	for(var iy = 0; iy < this.height; iy++)
 	for(var ix = 0; ix < this.width; ix++) {
 		var color = img.get(ix,iy);
+		this.setTile(ix,iy,Tiles.AIR);
+		
 		// Black
 		if (color[0] == 0 && color[1] == 0 && color[2] == 0) {
 			this.setTile(ix,iy,Tiles.BLOCK);
 		} else
-		// Red
-		if (color[0] == 255 && color[1] == 0 && color[2] == 0) {
+		// Blue
+		if (color[0] == 0 && color[1] == 0 && color[2] == 255) {
 			this.spawn.x = (ix+0.5) * TILE_SIZE;
 			this.spawn.y = (iy+0.5) * TILE_SIZE;
 			this.setTile(ix,iy,Tiles.AIR);
-		} else {
-		// White
-			this.setTile(ix,iy,Tiles.AIR);
+		} else
+		// Red
+		if (color[0] == 255 && color[1] == 0 && color[2] == 0) {
+			var demon = new Demon();
+			demon.x = (ix+0.5) * TILE_SIZE;
+			demon.y = (iy+0.5) * TILE_SIZE;
+			demons.push(demon);
 		}
 		
 	}

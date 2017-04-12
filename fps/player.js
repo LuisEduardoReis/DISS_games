@@ -1,8 +1,10 @@
-var MOVE_SPEED = TILE_SIZE/12;
-var JUMP_SPEED = -TILE_SIZE/2;
-var GRAVITY = TILE_SIZE/64;
+
 
 function Player() {
+	
+	var MOVE_SPEED = TILE_SIZE/12;
+	var JUMP_SPEED = -TILE_SIZE/2;
+	var GRAVITY = TILE_SIZE/64;
 	
 	this.x = this.px = level.spawn.x;
 	this.y = this.py = level.spawn.y;
@@ -36,51 +38,7 @@ function Player() {
 		this.x += fs*cos(player.dir) + ss*cos(player.dir+radians(90));
 		this.y -= fs*sin(player.dir) + ss*sin(player.dir+radians(90));;
 		
-	// Collisions
-		
-		// Calculate in which tile the player is in
-		var xc = Math.floor(this.x / TILE_SIZE);
-		var yc = Math.floor(this.y / TILE_SIZE);
-		
-		// Check if inside solid block to fix weird corner cases
-		if (level.getTile(xc,yc).solid) {
-			this.x = px;
-			xc = Math.floor(this.x / TILE_SIZE);
-		}
-		
-		// Calculate the player's position relative to the cell they're in
-		var xr = this.x - (xc * TILE_SIZE);
-		var yr = this.y - (yc * TILE_SIZE);
-		
-		// Check if bumping left
-		if (level.getTile(xc-1,yc).solid && xr <= this.radius) {
-			xr = this.radius;
-			this.dx = 0;
-		}
-		// Check if bumping right
-		if (level.getTile(xc+1,yc).solid && xr >= TILE_SIZE - this.radius) {
-			xr = TILE_SIZE - this.radius;
-			this.dx = 0;
-		}
-		// Update x. X-axis is now resolved
-		this.x = (xc * TILE_SIZE) + xr;		
-		xc = Math.floor(this.x / TILE_SIZE);
-		
-		// Check if bumping up
-		if (level.getTile(xc,yc-1).solid && yr <= this.radius) {
-			yr = this.radius;
-			this.dy = 0;
-		}
-		
-		// Check if bumping down
-		if (level.getTile(xc,yc+1).solid && yr >= TILE_SIZE - this.radius) {
-			yr = TILE_SIZE - this.radius;
-			this.dy = 0;	
-		}		
-		
-		// Update y. Y-axis is now resolved
-		this.y = (yc * TILE_SIZE) + yr;
+		// Collisions
+		collisions(this);
 	}
-
-	
 }

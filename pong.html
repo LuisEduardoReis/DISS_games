@@ -9,8 +9,8 @@
 		var ball = {}
 		var padLeft = {};
 		var padRight = {};
-		var padSpeed = 5;
-		var ballSpeed = 3;
+		var padSpeed = 10;
+		var ballSpeed = 10;
 		
 		// Function to reset the ball
 		function resetBall() {
@@ -20,7 +20,7 @@
 			// Flip the direction the ball is going
 			ball.vx = -ball.vx; 
 			// Send the ball in a random direction
-			ball.vy = random(-ballSpeed,ballSpeed);
+			ball.vy = 0; //random(-ballSpeed,ballSpeed);
 		}
 		
 		// Function to check if a given point is inside a given rectangle
@@ -29,6 +29,11 @@
 			var overlaps_y = point_y >= rect_y && point_y <= rect_y + rect_h;
 			return overlaps_x && overlaps_y;
 		}
+		
+		function stepTo(a,b,x) {
+			if (Math.abs(b-a) < x) return b;
+			else return a + Math.sign(b-a)*x;
+		} 
 		
 		function setup() {
 			createCanvas(480,320);
@@ -50,7 +55,7 @@
 			
 			// Reset the score
 			padLeft.score = 0;
-			padRight.score = 0;			
+			padRight.score = 0;
 		}
 		
 		function draw() {
@@ -60,10 +65,18 @@
 			ball.y += ball.vy;
 			
 			// Pad movement
-			if (keyIsDown(SHIFT)) padLeft.y -= padSpeed;
-			if (keyIsDown(CONTROL)) padLeft.y += padSpeed;
+			padRight.y = stepTo(padRight.y,ball.y,padSpeed);
+			padLeft.y = stepTo(padLeft.y + padLeft.h/2,ball.y,padSpeed) - padLeft.h/2;
+
 			if (keyIsDown(UP_ARROW)) padRight.y -= padSpeed;
 			if (keyIsDown(DOWN_ARROW)) padRight.y += padSpeed;
+			if (keyIsDown(LEFT_ARROW)) padRight.x -= 0.2*padSpeed;
+			if (keyIsDown(RIGHT_ARROW)) padRight.x += 0.2*padSpeed;
+			
+			if (keyIsDown(87)) padLeft.y -= padSpeed;
+			if (keyIsDown(83)) padLeft.y += padSpeed;
+			if (keyIsDown(65)) padLeft.x -= 0.2*padSpeed;
+			if (keyIsDown(68)) padLeft.x += 0.2*padSpeed;
 			
 			// Ball Bounds
 			// Left
