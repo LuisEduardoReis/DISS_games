@@ -1,14 +1,14 @@
 
 
-function collisions(entity) {
+function levelCollisions(entity) {
 	// Calculate in which tile the player is in
-	var xc = Math.floor(entity.x / TILE_SIZE);
-	var yc = Math.floor(entity.y / TILE_SIZE);
+	var xc = floor(entity.x / TILE_SIZE);
+	var yc = floor(entity.y / TILE_SIZE);
 	
 	// Check if inside solid block to fix weird corner cases
 	if (level.getTile(xc,yc).solid) {
 		entity.x = entity.px;
-		xc = Math.floor(entity.x / TILE_SIZE);
+		xc = floor(entity.x / TILE_SIZE);
 	}
 	
 	// Calculate the player's position relative to the cell they're in
@@ -27,7 +27,7 @@ function collisions(entity) {
 	}
 	// Update x. X-axis is now resolved
 	entity.x = (xc * TILE_SIZE) + xr;		
-	xc = Math.floor(entity.x / TILE_SIZE);
+	xc = floor(entity.x / TILE_SIZE);
 	
 	// Check if bumping up
 	if (level.getTile(xc,yc-1).solid && yr <= entity.radius) {

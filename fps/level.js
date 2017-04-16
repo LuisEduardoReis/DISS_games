@@ -54,7 +54,7 @@ function Level(img) {
 		for(var ix = 0; ix < this.width; ix++) {			
 			if (this.getTile(ix,iy) == Tiles.BLOCK) {
 				push();
-				translate(ix*TILE_SIZE,0,iy*TILE_SIZE);
+				translate(ix*TILE_SIZE,-TILE_SIZE,iy*TILE_SIZE);
 				box(TILE_SIZE);
 				pop();
 			}
