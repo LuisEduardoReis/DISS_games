@@ -15,6 +15,7 @@ function Level(img) {
 		return this.tiles[y*this.width + x];
 	}
 	this.setTile = function(x,y,t) {
+		if (x < 0 || y < 0 || x >= this.width || y >= this.height) return;
 		this.tiles[y*this.width + x] = t;
 	}
 	
@@ -28,20 +29,19 @@ function Level(img) {
 		if (color[0] == 0 && color[1] == 0 && color[2] == 0) {
 			this.setTile(ix,iy,Tiles.BLOCK);
 		} else
-		// Blue
-		if (color[0] == 0 && color[1] == 0 && color[2] == 255) {
+		// Red
+		if (color[0] == 255 && color[1] == 0 && color[2] == 0) {
 			this.spawn.x = (ix+0.5) * TILE_SIZE;
 			this.spawn.y = (iy+0.5) * TILE_SIZE;
 			this.setTile(ix,iy,Tiles.AIR);
 		} else
-		// Red
-		if (color[0] == 255 && color[1] == 0 && color[2] == 0) {
+		// Blue
+		if (color[0] == 0 && color[1] == 0 && color[2] == 255) {
 			var demon = new Demon();
 			demon.x = (ix+0.5) * TILE_SIZE;
 			demon.y = (iy+0.5) * TILE_SIZE;
 			demons.push(demon);
-		}
-		
+		}		
 	}
 	
 	this.display = function() {
