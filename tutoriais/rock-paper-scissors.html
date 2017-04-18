@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<body>
+
+<link rel="stylesheet" href="lib/default.min.css">
+<script src="lib/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	body { 
+		font-family: Verdana, sans-serif;
+		font-size: 11pt; 
+		max-width: 800px;
+		text-align: justify;
+	}
+	pre {tab-size: 4;}
+	img {border: 3px solid black;}
+</style>
+
+
+<h2> Rock Paper Scissors </h2>
+
+<a href="./">Índice</a>
+
+<p> Em português "Pedra Papel Tesoura", este é um jogo simples que duas ou mais pessoas podem jogar para decidir, por exemplo, quem começa um jogo. Ao final de uma contagem até 3 cada pessoa lança Pedra (mão fechada), Papel (mão aberta) ou Tesoura (indicador e dedo do meio em V). Pedra vence contra Tesoura, Tesoura vence contra Papel e Papel vence contra pedra.</p>
+
+<p> Na implementação que iremos fazer vamos fazer com que o computador possa jogar Pedra Papel Tesoura. Simplesmente, ao carregar num botão o computador irá escolher Pedra, Papel ou Tesoura aleatoriamente e mostrá-lo-á no ecrã.</p>
+
+
+
+<br>
+<h3> Primeiros Passos, o Ambiente</h3>
+
+<p> Antes de podermos começar a programar em javascript precisamos de preparar o nosso ambiente. Vamos precisar de duas ferramentas: </p>
+<ul>
+	<li>Um browser</li>
+	<li>Um editor de texto</li>
+</ul>
+
+<p>Em princípio qualquer browser serve para o que vamos fazer mas sugere-se o Google Chrome. O Chrome é uma excelente ferramenta de desenvolvimento e pode servir também como editor de texto/código. Para editor de texto será util um com highlight de sintaxe e que permita a fácil manipulação de vários ficheiros. Sugere-se o Notepad++. Com um simples editor de texto vamos ter de recorrer à consola do browser para detetar erros.</p>
+
+
+
+<br>
+<h3> O Primeiro Código </h3>
+
+<p>Para começar copia este código, cola-o num novo ficheiro de texto e grava-o com o nome "rock-paper-scissors.html". O mais importante é a extensão que indica que é um ficheiro html.</p>
+
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+	&lt;title&gt;Rock Paper Scissors&lt;/title&gt;
+&lt;/head&gt;
+	
+&lt;body&gt;
+	&lt;h1 id=&quot;text&quot;&gt;Press Go to throw Rock Paper Scissors&lt;/h1&gt;
+	&lt;button&gt;Go&lt;/button&gt;
+&lt;/body&gt;
+	
+&lt;script&gt;
+&lt;/script&gt;
+</code></pre>
+	
+
+<p> Experimenta abri-lo no browser. Deverás ver o seguinte:</p>
+
+<img src="images/rock-paper-scissors-1.png"></img>
+
+<p> Como o objetivo deste tutorial não é explorar o html não vamos entrar em muito detalhe no código que te demos. Vamos só listar o mais importante:</p>
+<ul>
+	<li> A tag <b>title</b>, o titulo da pagina que aparece no topo do browser. </li>
+	<li>A tag <b>h1</b> é um titulo e por isso aparece num tamanho de fonte maior. Tem como <b>id</b> o valor "text". O id é uma forma que temos para mais tarde nos referirmos ao elemento.</li>
+	<li>A tag <b>button</b>, como o próprio nome indica, é um botão em que podemos carregar. Inicialmente não faz nada.</li>
+	<li>A tag <b>script</b> que é onde vai ficar o nosso código javascript.</li>
+</ul>
+
+<p>Tudo o que está dentro da tag script é lido como javascript e é executado imediatamente e por ordem quando o browser a lê.</p>
+
+
+
+<br>
+<h3>Entrando no Javascript</h3>
+
+<p>Vamos escrever a nossa primeira linha de código em javascript. Coloca este código dentro da tua tag script:</p>
+
+<pre><code class="html">&lt;script&gt;
+	alert(&quot;Hello World!&quot;);
+&lt;/script&gt;
+</code></pre>
+
+<p>Se gravares o ficheiro e recarregares a página deve-te aparecer uma janela a dizer "Hello World!".</p>
+
+<img src="images/rock-paper-scissors-2.png"></img>
+
+<h3> Testar o botão </h3>
+
+<p>Agora, para experimentar vamos fazer com que a janela apareça quando carregamos no botão. </p>
+<p>Vamos primeiro criar uma função que será executada quando se carrega no botão:</p>
+
+<pre><code class="html">&lt;script&gt;
+	// Piece of code that executes when the &quot;go&quot; button is clicked	
+	function clicked() {			
+		alert(&quot;Hello World!&quot;);
+	}
+&lt;/script&gt;
+</code></pre>
+
+<p>Não copies este código. Escreve-o à mão e presta atenção a todas as partes que o constituem.</p>
+
+<p> Criar uma função separada não era estritamente necessário mas aqui vai ajudar a que o código fique mais organizado.</p>
+
+<p> A linha que começa com "//" é um comentário. Não faz nada, apenas serve para efeitos de organização e documentação.</p>
+
+<p>Vamos agora ligar esta função ao botão. A maneira mais fácil de fazer isso é mexendo no html que já tínhamos:</p>
+
+<pre><code class="html">&lt;button onclick=&quot;clicked()&quot;&gt;Go&lt;/button&gt;
+</code></pre>
+
+<p>Acrescentamos a propriedade onclick à tag button que executa o que está entre aspas como javascript quando carregamos no botão.</p>
+
+<p>Se recarregares a página agora deverá aparecer a mesma janela quando carregas no botão "Go".</p>
+
+
+
+<br>
+<h3> Vamos tirar à sorte </h3>
+
+<p>Vamos agora implementar o jogo propriamente dito. Já temos uma função (um pedaço de código) que é chamada sempre que se carrega no botão. Agora temos de escolher aleatoriamente que palavra é que vamos mandar e arranjar maneira de o mostrar no ecrã.</p>
+
+<p>Vamos começar por criar uma lista, também chamada array, das palavras possíveis.</p>
+
+<pre><code class="javascript">// Array of words to choose from
+var values = ['Rock', 'Paper', 'Scissors'];
+</code></pre>
+
+<p>"values" é agora uma <b>variável</b> onde está guardada a lista de palavras.</p>
+
+<p>(...)</p>
+</body>

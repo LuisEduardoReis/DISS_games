@@ -4,25 +4,24 @@
 	</head>
 	
 	<body>
-		<h3 id="text">Press Go to throw Rock Paper Scissors</h3>
-		<button id="go">Go</button>
+		<h1 id="text">Press Go to throw Rock Paper Scissors</h1>
+		<button onclick="clicked()">Go</button>
 	</body>
 	
 	<script>
-		// Array of words to choose from
-		var values = ['Rock', 'Paper', 'Scissors'];
+		// Piece of code that executes when the "go" button is clicked	
+		function clicked() {			
+			// Array of words to choose from
+			var values = ['Rock', 'Paper', 'Scissors'];
 		
-		document.getElementById('go').addEventListener('click', function () {
-			// Piece of code that executes when the "go" button is clicked
+			// Choose a random integer between 0 (inclusive) and the length of the word list (exclusive)
+			var index = Math.floor(Math.random()*values.length);
 			
-				// Choose a random integer between 0 (inclusive) and the length of the word list (exclusive)
-				var index = Math.floor(Math.random()*values.length);
-				// Get the corresponding value from the list. Array indices start from 0 and end at the list's length minus 1.
-				var result = values[index];
-				// Set the content of the "text" element to the choosen result
-				document.getElementById('text').innerHTML = result + '!';
-				
-			//
-		});		
+			// Get the corresponding value from the list. Array indices start from 0 and end at the list's length minus 1.
+			var result = values[index];
+			
+			// Set the content of the "text" element to the choosen result
+			document.getElementById('text').innerHTML = result + '!';
+		};
 	</script>
 </html>
