@@ -9,8 +9,8 @@
 		var ball = {}
 		var padLeft = {};
 		var padRight = {};
-		var padSpeed = 4;
-		var ballSpeed = 5;
+		var padSpeed = 10;
+		var ballSpeed = 10;
 		
 		// Function to reset the ball
 		function resetBall() {
@@ -19,8 +19,8 @@
 			ball.y = height / 2;
 			// Flip the direction the ball is going
 			ball.vx = -ball.vx; 
-			// Reset the ball's vertical speed
-			ball.vy = 0;
+			// Send the ball in a random direction
+			ball.vy = 0; //random(-ballSpeed,ballSpeed);
 		}
 		
 		// Function to check if a given point is inside a given rectangle
@@ -56,6 +56,9 @@
 			// Reset the score
 			padLeft.score = 0;
 			padRight.score = 0;
+			
+			padLeft.target = random(padLeft.h);
+			padRight.target = random(padRight.h);
 		}
 		
 		function draw() {
@@ -65,14 +68,18 @@
 			ball.y += ball.vy;
 			
 			// Pad movement
+			padRight.y = stepTo(padRight.y + padRight.target,ball.y,padSpeed) - padRight.target;
+			padLeft.y = stepTo(padLeft.y + padLeft.target,ball.y,padSpeed) - padLeft.target;
+
 			if (keyIsDown(UP_ARROW)) padRight.y -= padSpeed;
 			if (keyIsDown(DOWN_ARROW)) padRight.y += padSpeed;
+			if (keyIsDown(LEFT_ARROW)) padRight.x -= 0.2*padSpeed;
+			if (keyIsDown(RIGHT_ARROW)) padRight.x += 0.2*padSpeed;
 			
-			// AI opponent
-			if (ball.x < width/2) {
-				var target = padLeft.h/2;
-				padLeft.y = stepTo(padLeft.y + target,ball.y,padSpeed) - target;			
-			}
+			if (keyIsDown(87)) padLeft.y -= padSpeed;
+			if (keyIsDown(83)) padLeft.y += padSpeed;
+			if (keyIsDown(65)) padLeft.x -= 0.2*padSpeed;
+			if (keyIsDown(68)) padLeft.x += 0.2*padSpeed;
 			
 			// Ball Bounds
 			// Left
