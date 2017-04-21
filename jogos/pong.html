@@ -56,6 +56,9 @@
 			// Reset the score
 			padLeft.score = 0;
 			padRight.score = 0;
+			
+			padLeft.target = random(padLeft.h);
+			padRight.target = random(padRight.h);
 		}
 		
 		function draw() {
@@ -65,8 +68,8 @@
 			ball.y += ball.vy;
 			
 			// Pad movement
-			padRight.y = stepTo(padRight.y,ball.y,padSpeed);
-			padLeft.y = stepTo(padLeft.y + padLeft.h/2,ball.y,padSpeed) - padLeft.h/2;
+			padRight.y = stepTo(padRight.y + padRight.target,ball.y,padSpeed) - padRight.target;
+			padLeft.y = stepTo(padLeft.y + padLeft.target,ball.y,padSpeed) - padLeft.target;
 
 			if (keyIsDown(UP_ARROW)) padRight.y -= padSpeed;
 			if (keyIsDown(DOWN_ARROW)) padRight.y += padSpeed;
@@ -102,13 +105,17 @@
 				// Reverse the ball's speed along the x-axis
 				ball.vx = -ball.vx; 
 				// Set a new vertical speed based on where the ball hit on the pad
-				ball.vy =  map(ball.y - padRight.y, 0,padRight.h, -ballSpeed,ballSpeed); 
+				ball.vy =  map(ball.y - padRight.y, 0,padRight.h, -ballSpeed,ballSpeed);
+
+				padRight.target = random(padRight.h);				
 			}
 			// Left pad
 			if (ball.vx < 0 && pointInsideRectangle(ball.x, ball.y, padLeft.x,padLeft.y,padLeft.w,padLeft.h)) {
 				// Same as above
 				ball.vx = -ball.vx;
 				ball.vy = map(ball.y - padLeft.y, 0,padLeft.h, -ballSpeed,ballSpeed); 
+				
+				padLeft.target = random(padLeft.h);
 			}
 		
 			

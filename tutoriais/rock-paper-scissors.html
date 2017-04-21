@@ -20,7 +20,7 @@
 
 <a href="./">Índice</a>
 
-<p> Em português "Pedra Papel Tesoura", este é um jogo simples que duas ou mais pessoas podem jogar para decidir, por exemplo, quem começa um jogo. Ao final de uma contagem até 3 cada pessoa lança Pedra (mão fechada), Papel (mão aberta) ou Tesoura (indicador e dedo do meio em V). Pedra vence contra Tesoura, Tesoura vence contra Papel e Papel vence contra pedra.</p>
+<p> Em português "Pedra Papel Tesoura", este é um jogo simples que duas ou mais pessoas podem jogar para decidir, por exemplo, quem começa um jogo. Simultaneamente cada jogador lança Pedra (mão fechada), Papel (mão aberta) ou Tesoura (indicador e dedo do meio em V). Pedra vence contra Tesoura, Tesoura vence contra Papel e Papel vence contra pedra.</p>
 
 <p> Na implementação que iremos fazer vamos fazer com que o computador possa jogar Pedra Papel Tesoura. Simplesmente, ao carregar num botão o computador irá escolher Pedra, Papel ou Tesoura aleatoriamente e mostrá-lo-á no ecrã.</p>
 
@@ -42,7 +42,7 @@
 <br>
 <h3> O Primeiro Código </h3>
 
-<p>Para começar copia este código, cola-o num novo ficheiro de texto e grava-o com o nome "rock-paper-scissors.html". O mais importante é a extensão que indica que é um ficheiro html.</p>
+<p>Para começar copie este código para um novo ficheiro de texto e grave-o com o nome "rock-paper-scissors.html". O mais importante é a extensão que indica que é um ficheiro html.</p>
 
 <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;head&gt;
@@ -59,39 +59,39 @@
 </code></pre>
 	
 
-<p> Experimenta abri-lo no browser. Deverás ver o seguinte:</p>
+<p> Experimente abri-lo no browser. Deverá ver-se o seguinte:</p>
 
 <img src="images/rock-paper-scissors-1.png"></img>
 
 <p> Como o objetivo deste tutorial não é explorar o html não vamos entrar em muito detalhe no código que te demos. Vamos só listar o mais importante:</p>
 <ul>
-	<li> A tag <b>title</b>, o titulo da pagina que aparece no topo do browser. </li>
-	<li>A tag <b>h1</b> é um titulo e por isso aparece num tamanho de fonte maior. Tem como <b>id</b> o valor "text". O id é uma forma que temos para mais tarde nos referirmos ao elemento.</li>
-	<li>A tag <b>button</b>, como o próprio nome indica, é um botão em que podemos carregar. Inicialmente não faz nada.</li>
+	<li> A tag <b>title</b>, o título da pagina que aparece no topo do browser. </li>
+	<li>A tag <b>h1</b> é um título e por isso aparece num tamanho de fonte maior. Tem como <b>id</b> o valor "text". O id é uma forma que temos para mais tarde nos referirmos ao elemento.</li>
+	<li>A tag <b>button</b>, como o próprio nome indica, é um botão em que podemos carregar. Por default não faz nada.</li>
 	<li>A tag <b>script</b> que é onde vai ficar o nosso código javascript.</li>
 </ul>
 
-<p>Tudo o que está dentro da tag script é lido como javascript e é executado imediatamente e por ordem quando o browser a lê.</p>
+<p>Tudo o que está dentro da tag script é lido como javascript e é executado imediatamente, linha a linha por ordem quando o browser a lê.</p>
 
 
 
 <br>
 <h3>Entrando no Javascript</h3>
 
-<p>Vamos escrever a nossa primeira linha de código em javascript. Coloca este código dentro da tua tag script:</p>
+<p>Vamos escrever a nossa primeira linha de código em javascript. Coloque este código dentro da tag script:</p>
 
 <pre><code class="html">&lt;script&gt;
 	alert(&quot;Hello World!&quot;);
 &lt;/script&gt;
 </code></pre>
 
-<p>Se gravares o ficheiro e recarregares a página deve-te aparecer uma janela a dizer "Hello World!".</p>
+<p>Este codigo chama a função "alert" que apresenta um pedaço de texto numa janela. Se gravar o ficheiro e recarregar a página deverá aparecer uma janela a dizer "Hello World!".</p>
 
 <img src="images/rock-paper-scissors-2.png"></img>
 
 <h3> Testar o botão </h3>
 
-<p>Agora, para experimentar vamos fazer com que a janela apareça quando carregamos no botão. </p>
+<p>Agora, para experimentar o seu funcionamento, vamos fazer com que a janela apareça quando carregamos no botão. </p>
 <p>Vamos primeiro criar uma função que será executada quando se carrega no botão:</p>
 
 <pre><code class="html">&lt;script&gt;
@@ -102,20 +102,20 @@
 &lt;/script&gt;
 </code></pre>
 
-<p>Não copies este código. Escreve-o à mão e presta atenção a todas as partes que o constituem.</p>
+<p>Uma função é um pedaço de codigo que efetua uma determinada tarefa. Uma função é executada quando "alguma coisa" a chama ou invoca.</p>
 
 <p> Criar uma função separada não era estritamente necessário mas aqui vai ajudar a que o código fique mais organizado.</p>
 
 <p> A linha que começa com "//" é um comentário. Não faz nada, apenas serve para efeitos de organização e documentação.</p>
 
-<p>Vamos agora ligar esta função ao botão. A maneira mais fácil de fazer isso é mexendo no html que já tínhamos:</p>
+<p>Agora queremos que a nossa função seja invocada quando o botão é clicado. A maneira mais fácil de fazer isso é mexendo no html que já tínhamos:</p>
 
 <pre><code class="html">&lt;button onclick=&quot;clicked()&quot;&gt;Go&lt;/button&gt;
 </code></pre>
 
-<p>Acrescentamos a propriedade onclick à tag button que executa o que está entre aspas como javascript quando carregamos no botão.</p>
+<p>Acrescentamos a propriedade onclick à tag button que executa o que está entre aspas como javascript quando carregamos no botão. Neste caso invoca a função "clicked".</p>
 
-<p>Se recarregares a página agora deverá aparecer a mesma janela quando carregas no botão "Go".</p>
+<p>Se recarregar a página agora deverá aparecer a mesma janela quando se carrega no botão "Go".</p>
 
 
 
@@ -130,7 +130,61 @@
 var values = ['Rock', 'Paper', 'Scissors'];
 </code></pre>
 
-<p>"values" é agora uma <b>variável</b> onde está guardada a lista de palavras.</p>
+<p>Com a execução desta linha de código "values" é agora uma <b>variável</b> onde está guardada a lista de palavras.</p>
 
-<p>(...)</p>
-</body>
+<p>De seguida vamos escolher uma das palavras. Para isso escolhemos aleatoriamente um índice do array (por ex. 1, 2 ou 3). Porêm, na maioria das linguagens de programação, incluindo javascript, os índices começam em 0 em vez de 1 porque facilita muitas operações por isso vamos ter de escolher um índice entre 0 e 2. Depois poderemos aceder ao elemento correspondente ao índice da seguinte forma:
+
+<pre><code class="javascript">values[1] = 'Paper'</code></pre>
+
+<p>Para fazer a escolha aleatoria vamos partir da função Math.random() que devolve um numero decimal no intervalo [0,1[. Para o transformar num numero inteiro usamos a função Math.floor() que arredonda para baixo. O codigo final que cria um indice aleatorio e coloca o respetivo elemento da lista numa variável é o seguinte:</p>
+
+<pre><code class="javascript">// Choose a random integer between 0 (inclusive) and the length of the word list (exclusive)
+var index = Math.floor(Math.random()*values.length);
+
+// Get the corresponding value from the list. 
+// Array indices start from 0 and end at the list's length minus 1.
+var result = values[index];
+</code></pre>
+
+
+
+<br>
+<h3> Mostrar o resultado </h3>
+
+<p>Resta só colocar este valor no campo de texto. Para isso precisamos de um pouco de codigo para manipulação do DOM HTML mas não vamos entrar em muito detalhe sobre ele. É basicamente como atribuir um valor a uma variavel.</p>
+
+<pre><code class="javascript">// Set the content of the "text" element to the choosen result
+document.getElementById('text').innerHTML = result;</code></pre>
+
+<p>O aspeto final do nosso javascript e da função clicked é o seguinte:</p>
+
+<pre><code class="html">&lt;script&gt;
+	// Piece of code that executes when the &quot;go&quot; button is clicked	
+	function clicked() {			
+		// Array of words to choose from
+		var values = ['Rock', 'Paper', 'Scissors'];
+	
+		// Choose a random integer between 0 (inclusive) and the length of the word list (exclusive)
+		var index = Math.floor(Math.random()*values.length);
+		
+		// Get the corresponding value from the list.
+		// Array indices start from 0 and end at the list's length minus 1.
+		var result = values[index];
+		
+		// Set the content of the &quot;text&quot; element to the choosen result
+		document.getElementById('text').innerHTML = result;
+	};
+&lt;/script&gt;</code></pre>
+
+<p> Se recarregarmos agora a pagina e carregarmos no botão "Go" deverá aparecer "Rock", "Paper" ou "Scissor" aleatoriamente. </p>
+
+<img src="images/rock-paper-scissors-3.png"></img>
+
+<br>
+<br>
+<br>
+<a href="./">Índice</a>
+<br>
+<br>
+
+</body> 

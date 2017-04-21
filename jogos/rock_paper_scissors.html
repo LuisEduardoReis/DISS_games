@@ -17,11 +17,12 @@
 			// Choose a random integer between 0 (inclusive) and the length of the word list (exclusive)
 			var index = Math.floor(Math.random()*values.length);
 			
-			// Get the corresponding value from the list. Array indices start from 0 and end at the list's length minus 1.
+			// Get the corresponding value from the list.
+			// Array indices start from 0 and end at the list's length minus 1.
 			var result = values[index];
 			
 			// Set the content of the "text" element to the choosen result
-			document.getElementById('text').innerHTML = result + '!';
+			document.getElementById('text').innerHTML = result;
 		};
 	</script>
 </html>
