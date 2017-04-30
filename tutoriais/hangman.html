@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<body>
+
+<link rel="stylesheet" href="lib/default.min.css">
+<script src="lib/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	body { 
+		font-family: Verdana, sans-serif;
+		font-size: 11pt;
+		max-width: 800px;
+		text-align: justify;
+	}
+	pre {tab-size: 4;}
+	img {border: 3px solid black;}
+</style>
+
+<h2> Hangman </h2>
+
+<a href="./">Índice</a>
+
+<p> Em português "O Jogo do Enforcado", este é um jogo simples para duas pessoas. Uma escolhe uma palavra e a outra tenta adivinha-la dizendo uma letra de cada vez, tendo um dado número de tentativas.</p>
+
+<p>Na implementação que iremos fazer o computador irá jogar como a pessoa que escolhe a palavra. Irá mostrar a palavra parcial no ecrã, atualiza-la com as letras escolhidas e contar o número de tentativas falhadas.</p>
+
+
+<br>
+<h3> O template e as variáveis </h3>
+
+<pre><code class="html">&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Hangman&lt;/title&gt;		
+	&lt;/head&gt;
+	
+	&lt;body&gt;
+		&lt;h1 id=&quot;word&quot;&gt;&lt;/h1&gt; 
+		&lt;h3 id=&quot;fails&quot;&gt;&lt;h3&gt;
+		&lt;input id=&quot;letter&quot; type=&quot;text&quot; maxlength=&quot;1&quot;&gt;
+		&lt;button id=&quot;try&quot;&gt;Try&lt;/button&gt;
+		&lt;h3 id=&quot;result&quot;&gt;&lt;/h3&gt;
+	&lt;/body&gt;
+	
+	&lt;script&gt;
+	&lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p></p>
+
+
+<pre><code class="javascript">// Variables
+var words = ['abacate','banana','cereja'];
+var solution = words[Math.floor(Math.random()*words.length)];
+var word = '*'.repeat(solution.length);
+var fails = [];
+var maxFails = 4;
+</code></pre>
+
+<ul>
+	<li> <b>words</b> é um array onde vão estar as palavras possiveis para o computador escolher. Neste exemplo temos apenas 3.</li>
+	<li> <b>solution</b> é a palavra que o computador escolhe, escolhida do array de palavras anterior.</li>
+	<li> <b>word</b> é o estado da palavra à medida que o outro jogador a adivinha. Inicialmente é composta apenas de asteriscos mas estes vão sendo substituidos pelas letras corretas à medida que o jogador adivinha.</li>
+	<li> <b>fails</b> é um array para guardar as letras que o jogador experimentou mas falhou.</li>
+	<li> <b>maxFails</b> é o número maximo de tentativas falhadas permitido.</li>
+</ul>
