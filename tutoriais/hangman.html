@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <body>
 
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="lib/default.min.css">
 <script src="lib/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<style>
-	body { 
-		font-family: Verdana, sans-serif;
-		font-size: 11pt;
-		max-width: 800px;
-		text-align: justify;
-	}
-	pre {tab-size: 4;}
-	img {border: 3px solid black;}
-</style>
 
 <h2> Hangman </h2>
 
@@ -25,7 +16,7 @@
 
 
 <br>
-<h3> O template e as variáveis </h3>
+<h3> O template </h3>
 
 <pre><code class="html">&lt;html&gt;
 	&lt;head&gt;
@@ -45,8 +36,18 @@
 &lt;/html&gt;
 </code></pre>
 
-<p></p>
+<p>Este será o html com que iremos trabalhar. Todos os elementos tem um <b>id</b> a partir do qual podemos referir-nos a eles.</p>
+<ul>
+	<li> O h1 <b>word</b> é um cabeçalho onde vamos colocar a nossa palavra escondida.</li>
+	<li> O h3 <b>fails</b> é um cabeçalho mais pequeno onde vamos colocar informação sobre tentativas falhadas ao jogador.</li>
+	<li> O input <b>letter</b> é a caixa de texto onde vamos receber uma letra do jogador. Note-se o parametro "maxLength" igual a 1 que impede que o utilizador coloque mais do que uma letra </li>
+	<li> O botão <b>try</b> é o botão que irá dispoletar a jogada do jogador. </li>
+	<li> Finalmente, o h3 <b>result</b> é um cabeçalho onde vamos colocar o resultado do jogo ("ganhou"/"perdeu").</li>	
+</ul>
 
+
+<br>
+<h3> As variáveis </h3>
 
 <pre><code class="javascript">// Variables
 var words = ['abacate','banana','cereja'];

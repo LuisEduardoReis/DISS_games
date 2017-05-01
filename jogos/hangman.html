@@ -5,9 +5,9 @@
 	
 	<body>
 		<h1 id="word"></h1> 
-		<h3 id="fails"><h3>
+		<h3 id="fails"></h3>
 		<input id="letter" type="text" maxlength="1">
-		<button id="try">Try</button>
+		<button id="try" onclick="tryLetter()">Try</button>
 		<h3 id="result"></h3>
 	</body>
 	
@@ -15,34 +15,47 @@
 		// Variables
 		var words = ['abacate','banana','cereja'];
 		var solution = words[Math.floor(Math.random()*words.length)];
-		var word = '*'.repeat(solution.length);
+		var word = "";
 		var fails = [];
 		var maxFails = 4;
 		
+		// Generate the initial word using a while cycle
+		while(word.length < solution.length) word = word + '*';
+		
+		// HTML Elements
+		var wordElement = document.getElementById('word');
+		var failsElement = document.getElementById('fails');
+		var letterElement = document.getElementById('letter');
+		var tryElement = document.getElementById('try');
+		var resultElement = document.getElementById('result');
+				
 		// Function to set/reset the HTML elements
 		function resetInterface() {
 			// Set the word element's text
-			document.getElementById('word').innerHTML = word;
+			wordElement.innerHTML = word;
 			// Reset the letter input
-			document.getElementById('letter').value = '';
+			letterElement.value = '';
 			
 			// Set the number of fails element's text
 			if (fails.length > 0) {
-				document.getElementById('fails').innerHTML = 'Fails: ' + fails.toString() + ' (' + fails.length + '/' + maxFails + ')';
+				failsElement.innerHTML = 'Fails: ' + fails.toString() + ' (' + fails.length + '/' + maxFails + ')';
 			} else 
-				document.getElementById('fails').innerHTML = '';
+				failsElement.innerHTML = '';
 			
 			// Set the result element's text
-			if (fails.length > maxFails)
-				document.getElementById('result').innerHTML = 'You lose! The word was \"' + solution + '\"';
+			if (fails.length > maxFails) 
+				resultElement.innerHTML = 'You lose! The word was \"' + solution + '\"';
 			else if (word == solution) 
-				document.getElementById('result').innerHTML = 'You win!';
+				resultElement.innerHTML = 'You win!';
 		}
 		
-		// "Try" button's click event
-		document.getElementById('try').addEventListener('click', function() {
+		// Initially reset the interface
+		resetInterface();
+		
+		// Function for the "Try" button
+		function tryLetter() {
 			// Get the letter from the input element
-			var letter = document.getElementById('letter').value;
+			var letter = letterElement.value.toLowerCase();
 			
 			if (letter == '') return; // Ignore it if it's empty
 			var success = false; // Assume it is a fail
@@ -61,8 +74,6 @@
 			
 			// Refresh the interface with the new values
 			resetInterface();
-		});
-		
-		resetInterface();
+		}
 	</script>
 </html>

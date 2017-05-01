@@ -68,8 +68,8 @@
 			ball.y += ball.vy;
 			
 			// Pad movement
-			padRight.y = stepTo(padRight.y + padRight.target,ball.y,padSpeed) - padRight.target;
-			padLeft.y = stepTo(padLeft.y + padLeft.target,ball.y,padSpeed) - padLeft.target;
+			if (ball.x > width/2) padRight.y = stepTo(padRight.y + padRight.target,ball.y,padSpeed) - padRight.target;
+			if (ball.x < width/2) padLeft.y = stepTo(padLeft.y + padLeft.target,ball.y,padSpeed) - padLeft.target;
 
 			if (keyIsDown(UP_ARROW)) padRight.y -= padSpeed;
 			if (keyIsDown(DOWN_ARROW)) padRight.y += padSpeed;
