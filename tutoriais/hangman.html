@@ -52,7 +52,7 @@
 <pre><code class="javascript">// Variables
 var words = ['abacate','banana','cereja'];
 var solution = words[Math.floor(Math.random()*words.length)];
-var word = '*'.repeat(solution.length);
+var word = '';
 var fails = [];
 var maxFails = 4;
 </code></pre>
@@ -60,7 +60,7 @@ var maxFails = 4;
 <ul>
 	<li> <b>words</b> é um array onde vão estar as palavras possiveis para o computador escolher. Neste exemplo temos apenas 3.</li>
 	<li> <b>solution</b> é a palavra que o computador escolhe, escolhida do array de palavras anterior.</li>
-	<li> <b>word</b> é o estado da palavra à medida que o outro jogador a adivinha. Inicialmente é composta apenas de asteriscos mas estes vão sendo substituidos pelas letras corretas à medida que o jogador adivinha.</li>
+	<li> <b>word</b> é o estado da palavra à medida que o outro jogador a adivinha. Inicialmente é composta apenas de asteriscos mas estes vão sendo substituidos pelas letras corretas à medida que o jogador adivinha. Para já vamos inicializa-la com a</li>
 	<li> <b>fails</b> é um array para guardar as letras que o jogador experimentou mas falhou.</li>
 	<li> <b>maxFails</b> é o número maximo de tentativas falhadas permitido.</li>
 </ul>
