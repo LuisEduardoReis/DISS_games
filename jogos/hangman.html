@@ -11,42 +11,45 @@
 		<h3 id="result"></h3>
 	</body>
 	
-	<script>
+	<script>	
 		// Variables
-		var words = ['abacate','banana','cereja'];
+		var words = ["abacate","banana","cereja"];
 		var solution = words[Math.floor(Math.random()*words.length)];
-		var word = '';
+		var word = "";
 		var fails = [];
 		var maxFails = 4;
 		
 		// Generate the initial word using a while cycle
-		while(word.length < solution.length) word = word + '*';
+		while(word.length < solution.length) word = word + "*";
 		
 		// HTML Elements
-		var wordElement = document.getElementById('word');
-		var failsElement = document.getElementById('fails');
-		var letterElement = document.getElementById('letter');
-		var tryElement = document.getElementById('try');
-		var resultElement = document.getElementById('result');
-				
+		var wordElement = document.getElementById("word");
+		var failsElement = document.getElementById("fails");
+		var letterElement = document.getElementById("letter");
+		var tryElement = document.getElementById("try");
+		var resultElement = document.getElementById("result");
+			
+	
 		// Function to set/reset the HTML elements
 		function resetInterface() {
-			// Set the word element's text
+			// Set the word element"s text
 			wordElement.innerHTML = word;
 			// Reset the letter input
-			letterElement.value = '';
+			letterElement.value = "";
 			
-			// Set the number of fails element's text
+			// Set the number of fails element"s text
 			if (fails.length > 0) {
-				failsElement.innerHTML = 'Fails: ' + fails.toString() + ' (' + fails.length + '/' + maxFails + ')';
+				failsElement.innerHTML = "Fails: " + fails.toString() + " (" + fails.length + "/" + maxFails + ")";
 			} else 
-				failsElement.innerHTML = '';
+				failsElement.innerHTML = "";
 			
-			// Set the result element's text
+			// Set the result element"s text
 			if (fails.length > maxFails) 
-				resultElement.innerHTML = 'You lose! The word was \"' + solution + '\"';
+				resultElement.innerHTML = "You lose! The word was \"" + solution + "\"";
 			else if (word == solution) 
-				resultElement.innerHTML = 'You win!';
+				resultElement.innerHTML = "You win!";
+			else
+				resultElement.innerHTML = "";
 		}
 		
 		// Initially reset the interface
@@ -57,7 +60,7 @@
 			// Get the letter from the input element
 			var letter = letterElement.value.toLowerCase();
 			
-			if (letter == '') return; // Ignore it if it's empty
+			if (letter == "") return; // Ignore it if it's empty
 			var success = false; // Assume it is a fail
 			
 			// Iterate over the solution's letters and see if the input letter is there
@@ -65,7 +68,7 @@
 				if (solution[i] == letter) { 
 					// Lable this letter as a success
 					success = true;
-					// Replace the corresponding '*' on the game word
+					// Replace the corresponding "*" on the game word
 					word = word.substring(0,i) + letter + word.substring(i+1,word.length);
 				}
 			}
