@@ -83,7 +83,7 @@ while(word.length &lt; solution.length) word = word + &quot;*&quot;;
 
 <p>Aqui a condição é "a palavra ter um tamanho inferior ao da solução" e a operação é "adicionar um asterisco à palavra". Efetivamente, quando o ciclo acabar, a palavra terá o tamanho da solução em asteriscos.</p>
 
-<p>Finalmente vamos criar variaveis para cada um dos elementos do html para ser mais facil aceder-lhes:</p>
+<p>Finalmente vamos criar variáveis para cada um dos elementos do html para ser mais fácil aceder-lhes:</p>
 
 <pre><code class="javascript">// HTML Elements
 var wordElement = document.getElementById(&quot;word&quot;);
@@ -97,11 +97,11 @@ var resultElement = document.getElementById(&quot;result&quot;);</code></pre>
 <br>
 <h3> Povoando o interface </h3>
 
-<p>Se carregarmos a pagina atualmente deverá aparecer apenas a caixa de input de texto e o botão que criamos.</p>
+<p>Se carregarmos a página atualmente deverá aparecer apenas a caixa de input de texto e o botão que criamos.</p>
 
 <img src="images/hangman-1.png"></img>
 
-<p>Vamos inserir o conteudo correto em cada elemento do html. Primeiro colocamos a palavra e limpamos a caixa de input de texto (vai ser importante mais tarde).</p>
+<p>Vamos inserir o conteúdo correto em cada elemento do html. Primeiro colocamos a palavra e limpamos a caixa de input de texto (vai ser importante mais tarde).</p>
 
 <pre><code class="javascript">// Set the word element&quot;s text
 wordElement.innerHTML = word;
@@ -121,7 +121,7 @@ if (fails.length &gt; 0) {
 <p> Finalmente preenchemos o cabeçalho do resultado. Existem três casos possíveis:  </p>
 <ul>
 	<li>O jogador ultrapassou o limite de falhas e temos de mostrar uma mensagem de derrota.</li>
-	<li>Senão, se o jogador tiver chegado à solução, ou seja, quando a palavra atual for igual à solução, mostramos uma mensagem de vitoria.</li>
+	<li>Senão, se o jogador tiver chegado à solução, ou seja, quando a palavra atual for igual à solução, mostramos uma mensagem de vitória.</li>
 	<li>Em qualquer outro caso, não mostramos nada.</li>
 </ul>
 
@@ -134,7 +134,7 @@ else
 	resultElement.innerHTML = &quot;&quot;;
 </code></pre>
 
-<p>Vamos colocar o codigo de povoação da interface numa função para ser facil atualizar o interface mais tarde. Invocamos a função logo a seguir a declara-la para o interface ser povoado inicialmente.</p>
+<p>Vamos colocar o código de povoação da interface numa função para ser fácil atualizar o interface mais tarde. Invocamos a função logo a seguir a declara-la para o interface ser povoado inicialmente.</p>
 
 <pre><code class="javascript">// Function to set/reset the HTML elements
 function resetInterface() {
@@ -162,7 +162,7 @@ function resetInterface() {
 resetInterface();
 </code></pre>
 
-<p>Se atualizarmos a pagina agora deverá aparecer pelo menos a palavra representada por asteriscos.</p>
+<p>Se atualizarmos a página agora deverá aparecer pelo menos a palavra representada por asteriscos.</p>
 
 <img src="images/hangman-2.png"></img>
 
@@ -183,13 +183,13 @@ function tryLetter() {
 <pre><code class="html">&lt;button id=&quot;try&quot; onclick=&quot;tryLetter()&quot;&gt;Try&lt;/button&gt;
 </code></pre>
 
-<p>A primeira coisa que precisamos de fazer é ir buscar a letra que o jogador escolheu. Usamos a função toLowerCase() para funcionar no caso do jogador inserir uma letra maiuscula. Assim assumimos sempre que a letra introduzida é minuscula.</p>
+<p>A primeira coisa que precisamos de fazer é ir buscar a letra que o jogador escolheu. Usamos a função toLowerCase() para funcionar no caso do jogador inserir uma letra maiuscúla. Assim assumimos sempre que a letra introduzida é minuscúla.</p>
 
 <pre><code class="javascript">// Get the letter from the input element
 var letter = letterElement.value.toLowerCase();
 </code></pre>
 
-<p>A seguir temos de ter em conta os casos em que o jogador introduz input invalido. Vamos para já verificar só que de facto foi introduzida uma letra. Ou seja, terminar a função caso o input seja vazio.</p>
+<p>A seguir temos de ter em conta os casos em que o jogador introduz input inválido. Vamos para já verificar só que de facto foi introduzida uma letra. Ou seja, terminar a função caso o input seja vazio.</p>
 
 <pre><code class="javascript">if (letter == &quot;&quot;) return; // Ignore it if it's empty
 </code></pre>
@@ -216,7 +216,7 @@ var letter = letterElement.value.toLowerCase();
 	<li>Primeiro é executada a inicialização.</li>
 	<li>Depois, enquanto a condição for valida, é executada sucessivamente a operação seguida do incremento.</li>
 </ul>
-<p>É equivalente ao seguinte codigo:</p>
+<p>É equivalente ao seguinte código:</p>
 <pre><code class="javascript">inicializa&ccedil;&atilde;o; 
 while(condi&ccedil;&atilde;o) {
 	opera&ccedil;&atilde;o;
@@ -226,7 +226,7 @@ while(condi&ccedil;&atilde;o) {
 
 <p>Efetivamente, com este ciclo vamos ter uma operação que será efetuada varias vezes em que cada vez i toma incrementalmente os valores de 0 até word.length-1.</p>
 
-<p>Por causa da forma como as strings (pedaços de texto) funcionam em javascript a maneira mais facil de substituir os asteriscos é construir a string de novo. Assim, vamos começar com uma string vazia e um a um vamos introduzir os caracteres corretos.</p>
+<p>Por causa da forma como as strings (pedaços de texto) funcionam em javascript a maneira mais fácil de substituir os asteriscos é construir a string de novo. Assim, vamos começar com uma string vazia e um a um vamos introduzir os caracteres corretos.</p>
 
 <pre><code class="javascript">var newWord = &quot;&quot;;
 
@@ -246,7 +246,7 @@ word = newWord;
 </code></pre>
 
 <p>Colocamos um if dentro do ciclo. Se a letra que estamos a 
-analizar atualmente na solução (obtida através de solution[i]) 
+analisar atualmente na solução (obtida através de solution[i]) 
 for igual à letra inserida pelo jogador colocamo-la na nova 
 palavra. Senão colocamos na nova palavra a letra ou asterisco 
 que já lá estava na palavra antiga.</p>
@@ -265,9 +265,9 @@ que já lá estava na palavra antiga.</p>
 <br>
 <h3> Contar os erros </h3>
 
-<p>Falta agora adicionar a letra do jogador à lista de letras falhadas caso não esteja na solução. Sabemos que uma jogada foi bem sucedida se pelo menos uma letra da solução for igual à letra introduzida.</p>
+<p>Falta agora adicionar a letra do jogador à lista de letras falhadas caso não esteja na solução. Sabemos que uma jogada foi bem-sucedida  se pelo menos uma letra da solução for igual à letra introduzida.</p>
 
-<p>Para sabermos isto vamos criar uma variável fail que indica se a jogada não foi bem sucedida ou não. Partimos do principio que não foi bem sucedida e durante o ciclo atualizamos a variavel fail caso encontremos a letra introduzida.</p>
+<p>Para sabermos isto vamos criar uma variável fail que indica se a jogada não foi bem-sucedida  ou não. Partimos do principio que não foi bem-sucedida  e durante o ciclo atualizamos a variavel fail caso encontremos a letra introduzida.</p>
 
 <p>O nosso ciclo fica então assim:</p>
 
@@ -298,9 +298,9 @@ word = newWord;
 
 
 <br>
-<h2> possíveis Melhorias </h2>
+<h2> Possíveis Melhorias </h2>
 
-<p>Apesar de funcional, o nosso enforcado ainda tem espaço para melhorias. Para além de adicioar mais palavras propomos que implemente as seguintes melhorias:</p>
+<p>Apesar de funcional, o nosso enforcado ainda tem espaço para melhorias. Para além de adicionar mais palavras propomos que implemente as seguintes melhorias:</p>
 
 <ol>
 	<li>Se introduzirmos uma letra correta que já tenha sido introduzida antes a palavra fica na mesma mas não é dado nenhum feedback. Adicione uma mensagem para quando uma letra repetida for introduzida. <br>
@@ -309,6 +309,6 @@ word = newWord;
 	<li>Da mesma forma, se introduzirmos uma letra errada que já tenha sido introduzida antes esta ficará na lista de letras erradas e contará como um erro. Adicione uma verificação para que isto não aconteça e adicione uma mensagem de aviso para quando acontecer.</li>
 	<br>
 	<li>Ter de carregar no botão de try é chato. Seria mais intuitivo poder carregar na tecla Enter. Implemente este comportamento.<br>
-	Sugestão: Existe um parâmetro onkeydown nos elementos html ao qual podemos passar uma função. Essa função recebe um parâmetro event com informações sobre a tecla carregada. Procure mais informações sobre os eventos do teclado em html e descubra o codigo da tecla enter.
+	Sugestão: Existe um parâmetro onkeydown nos elementos html ao qual podemos passar uma função. Essa função recebe um parâmetro event com informações sobre a tecla carregada. Procure mais informações sobre os eventos do teclado em html e descubra o código da tecla enter.
 	</li>
 </ol>
