@@ -6,7 +6,7 @@
 	<body>
 		<h1 id="word"></h1> 
 		<h3 id="fails"></h3>
-		<input id="letter" type="text" maxlength="1">
+		<input id="letter" type="text" maxlength="1" onkeypress="handleKeydown(event)">
 		<button id="try" onclick="tryLetter()">Try</button>
 		<h3 id="result"></h3>
 	</body>
@@ -83,6 +83,10 @@
 			
 			// Refresh the interface with the new values
 			resetInterface();
+		}
+		
+		function handleKeydown(event) {
+			if(event.keyCode == 13) tryLetter();
 		}
 	</script>
 </html>
