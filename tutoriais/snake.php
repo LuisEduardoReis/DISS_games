@@ -11,6 +11,6 @@
 
 <div id="demo">
 	<?php include('../jogos/snake.html'); ?>
-</div>
+</div><br>
 
 <a href="./">Índice</a>
