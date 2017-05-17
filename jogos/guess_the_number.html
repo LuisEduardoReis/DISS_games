@@ -4,34 +4,25 @@
 	</head>
 	
 	<body>
-		<h3 id="text1"></h3>
-		<h3 id="text2"></h3>
-		<!-- In this example we implemented the onClick event of the buttons directly on the html-->
-		<button id="yes" onClick="min=current; update();">Yes</button>
-		<button id="no" onClick="max=current; update();">No</button>
+		<h1 id="text"></h1>
 	</body>
 	
-	<script>
-		// Variables		
-		var min = 1, max = 100;
-		var current;
-		
-		function update() {
-			// The current guess is the number between 
-			current = Math.floor((min + max)/2);
+	<script>		
+		function findNumber(min, max) {
+			if (min == max) {
+				document.getElementById("text").innerHTML = "Your number is " + max;
+			} else {
+				var midPoint = Math.floor((min+max)/2);
 			
-			// If the max and min converge we have found the answer
-			if (max - min <= 1) {
-				document.getElementById('text1').innerHTML = 'Your number is ' + max;
-				document.getElementById('text2').innerHTML = '';
-			} 
-			// Else, we need to ask another question
-			else {
-				document.getElementById('text1').innerHTML = 'Think of a number from 1 to 100';
-				document.getElementById('text2').innerHTML = 'Is it bigger than ' + current + '?';
-			}			
+				if (confirm("Your number is larger than " + midPoint)) {
+					findNumber(midPoint+1,max);
+				} else {
+					findNumber(min, midPoint);
+				}
+			}
 		}
-		update();
 		
+		alert("Think of an number between 1 and 100.");
+		findNumber(1,100);
 	</script>
 </html>
