@@ -11,7 +11,7 @@
 
 <div id="demo">
 	<?php include('../jogos/hangman.html'); ?>
-</div>
+</div><br>
 
 <a href="./">Índice</a>
 
@@ -95,7 +95,7 @@ var resultElement = document.getElementById(&quot;result&quot;);</code></pre>
 
 
 <br>
-<h3> Povoando o interface </h3>
+<h3> Povoando a interface </h3>
 
 <p>Se carregarmos a página atualmente deverá aparecer apenas a caixa de input de texto e o botão que criamos.</p>
 
@@ -109,7 +109,7 @@ wordElement.innerHTML = word;
 letterElement.value = &quot;&quot;;
 </code></pre>
 
-<p>A seguir vamos preencher o cabeçalho que mostra as letras falhadas e o número máximo de tentativas. Vamos usar um if para que só apareça quando o numero de tentativas falhadas for maior que 0.</p>
+<p>A seguir vamos preencher o cabeçalho que mostra as letras falhadas e o número máximo de tentativas. Vamos usar um if para que só apareça quando o número de tentativas falhadas for maior que 0.</p>
 
 <pre><code class="javascript">// Set the number of fails element&quot;s text
 if (fails.length &gt; 0) {
@@ -134,7 +134,7 @@ else
 	resultElement.innerHTML = &quot;&quot;;
 </code></pre>
 
-<p>Vamos colocar o código de povoação da interface numa função para ser fácil atualizar o interface mais tarde. Invocamos a função logo a seguir a declara-la para o interface ser povoado inicialmente.</p>
+<p>Vamos colocar o código de povoação da interface numa função para ser fácil atualizar a interface mais tarde. Invocamos a função logo a seguir a declara-la para a interface ser povoado inicialmente.</p>
 
 <pre><code class="javascript">// Function to set/reset the HTML elements
 function resetInterface() {
@@ -253,7 +253,7 @@ que já lá estava na palavra antiga.</p>
 
 <p>No fim do ciclo colocamos a nova palavra de volta na variável word.</p>
 
-<p>Para terminar a função tryLetter temos de fazer chamar resetInterface() para colocar as alterações no interface.</p>
+<p>Para terminar a função tryLetter temos de fazer chamar resetInterface() para colocar as alterações na interface.</p>
 
 <br>
 <p>Se testarmos agora o jogo deverá aceitar letras como input e deve substituir corretamente os asteriscos. Porém ainda não conta com jogadas erradas.</p>
@@ -267,7 +267,7 @@ que já lá estava na palavra antiga.</p>
 
 <p>Falta agora adicionar a letra do jogador à lista de letras falhadas caso não esteja na solução. Sabemos que uma jogada foi bem-sucedida  se pelo menos uma letra da solução for igual à letra introduzida.</p>
 
-<p>Para sabermos isto vamos criar uma variável fail que indica se a jogada não foi bem-sucedida  ou não. Partimos do principio que não foi bem-sucedida  e durante o ciclo atualizamos a variavel fail caso encontremos a letra introduzida.</p>
+<p>Para sabermos isto vamos criar uma variável fail que indica se a jogada não foi bem-sucedida  ou não. Partimos do principio que não foi bem-sucedida  e durante o ciclo atualizamos a variável fail caso encontremos a letra introduzida.</p>
 
 <p>O nosso ciclo fica então assim:</p>
 
@@ -286,7 +286,7 @@ for(var i = 0; i &lt; word.length; i++) {
 word = newWord;
 </code></pre>
 
-<p>Depois do ciclo apenas temos de adicionar a letra à lista de letras falhadas caso a variavel fail seja verdadeira.</p>
+<p>Depois do ciclo apenas temos de adicionar a letra à lista de letras falhadas caso a variável fail seja verdadeira.</p>
 
 <pre><code class="javascript">if (fail) fails.push(letter); // In case of fail, add this letter to fail list
 </code></pre>
@@ -304,7 +304,7 @@ word = newWord;
 
 <ol>
 	<li>Se introduzirmos uma letra correta que já tenha sido introduzida antes a palavra fica na mesma mas não é dado nenhum feedback. Adicione uma mensagem para quando uma letra repetida for introduzida. <br>
-	Sugestão: Há varias formas de fazer isto. Podemos percorrer a palavra à procura da letra antes de fazer a substituição dos asteriscos ou podemos usar o ciclo de substituição e ter uma variavel repeated semelhante à variavel fail.</li>
+	Sugestão: Há varias formas de fazer isto. Podemos percorrer a palavra à procura da letra antes de fazer a substituição dos asteriscos ou podemos usar o ciclo de substituição e ter uma variável repeated semelhante à variável fail.</li>
 	<br>
 	<li>Da mesma forma, se introduzirmos uma letra errada que já tenha sido introduzida antes esta ficará na lista de letras erradas e contará como um erro. Adicione uma verificação para que isto não aconteça e adicione uma mensagem de aviso para quando acontecer.</li>
 	<br>
@@ -312,3 +312,12 @@ word = newWord;
 	Sugestão: Existe um parâmetro onkeydown nos elementos html ao qual podemos passar uma função. Essa função recebe um parâmetro event com informações sobre a tecla carregada. Procure mais informações sobre os eventos do teclado em html e descubra o código da tecla enter.
 	</li>
 </ol>
+
+<br>
+<br>
+<br>
+<a href="./">Índice</a>
+<br>
+<br>
+
+</body> 

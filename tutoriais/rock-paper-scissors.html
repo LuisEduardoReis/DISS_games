@@ -18,31 +18,31 @@
 
 <h2> Rock Paper Scissors </h2>
 
-<a href="./">Õndice</a>
+<a href="./">√çndice</a>
 
-<p> Em portuguÍs "Pedra Papel Tesoura", este È um jogo simples que duas ou mais pessoas podem jogar para decidir, por exemplo, quem comeÁa um jogo. Simultaneamente cada jogador lanÁa Pedra (m„o fechada), Papel (m„o aberta) ou Tesoura (indicador e dedo do meio em V). Pedra vence contra Tesoura, Tesoura vence contra Papel e Papel vence contra Pedra.</p>
+<p> Em portugu√™s "Pedra Papel Tesoura", este √© um jogo simples que duas ou mais pessoas podem jogar para decidir, por exemplo, quem come√ßa um jogo. Simultaneamente cada jogador lan√ßa Pedra (m√£o fechada), Papel (m√£o aberta) ou Tesoura (indicador e dedo do meio em V). Pedra vence contra Tesoura, Tesoura vence contra Papel e Papel vence contra Pedra.</p>
 
-<p> Na implementaÁ„o que iremos fazer vamos fazer com que o computador possa jogar Pedra Papel Tesoura. Simplesmente, ao carregar num bot„o o computador ir· escolher Pedra, Papel ou Tesoura aleatoriamente e mostr·-lo-· no ecr„.</p>
+<p> Na implementa√ß√£o que iremos fazer vamos fazer com que o computador possa jogar Pedra Papel Tesoura. Simplesmente, ao carregar num bot√£o o computador ir√° escolher Pedra, Papel ou Tesoura aleatoriamente e mostr√°-lo-√° no ecr√£.</p>
 
 
 
 <br>
 <h3> Primeiros Passos, o Ambiente</h3>
 
-<p> Antes de podermos comeÁar a programar em javascript precisamos de preparar o nosso ambiente. Vamos precisar de duas ferramentas: </p>
+<p> Antes de podermos come√ßar a programar em javascript precisamos de preparar o nosso ambiente. Vamos precisar de duas ferramentas: </p>
 <ul>
 	<li>Um browser</li>
 	<li>Um editor de texto</li>
 </ul>
 
-<p>Em princÌpio qualquer browser serve para o que vamos fazer mas sugere-se o Google Chrome. O Chrome È uma excelente ferramenta de desenvolvimento e pode servir tambÈm como editor de texto/cÛdigo. Para editor de texto ser· util um com highlight de sintaxe e que permita a f·cil manipulaÁ„o de v·rios ficheiros. Sugere-se o Notepad++. Com um simples editor de texto vamos ter de recorrer ‡ consola do browser para detetar erros.</p>
+<p>Em princ√≠pio qualquer browser serve para o que vamos fazer mas sugere-se o Google Chrome. O Chrome √© uma excelente ferramenta de desenvolvimento e pode servir tamb√©m como editor de texto/c√≥digo. Para editor de texto ser√° util um com highlight de sintaxe e que permita a f√°cil manipula√ß√£o de v√°rios ficheiros. Sugere-se o Notepad++. Com um simples editor de texto vamos ter de recorrer √† consola do browser para detetar erros.</p>
 
 
 
 <br>
-<h3> O Primeiro CÛdigo </h3>
+<h3> O Primeiro C√≥digo </h3>
 
-<p>Para comeÁar copie este cÛdigo para um novo ficheiro de texto e grave-o com o nome "rock-paper-scissors.html". O mais importante È a extens„o que indica que È um ficheiro html.</p>
+<p>Para come√ßar copie este c√≥digo para um novo ficheiro de texto e grave-o com o nome "rock-paper-scissors.html". O mais importante √© a extens√£o que indica que √© um ficheiro html.</p>
 
 <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;head&gt;
@@ -59,40 +59,40 @@
 </code></pre>
 	
 
-<p> Experimente abri-lo no browser. Dever· ver-se o seguinte:</p>
+<p> Experimente abri-lo no browser. Dever√° ver-se o seguinte:</p>
 
 <img src="images/rock-paper-scissors-1.png"></img>
 
-<p> Como o objetivo deste tutorial n„o È explorar o html n„o vamos entrar em muito detalhe no cÛdigo que te demos. Vamos sÛ listar o mais importante:</p>
+<p> Como o objetivo deste tutorial n√£o √© explorar o html n√£o vamos entrar em muito detalhe no c√≥digo que te demos. Vamos s√≥ listar o mais importante:</p>
 <ul>
-	<li> A tag <b>title</b>, o tÌtulo da pagina que aparece no topo do browser. </li>
-	<li>A tag <b>h1</b> È um tÌtulo e por isso aparece num tamanho de fonte maior. Tem como <b>id</b> o valor "text". O id È uma forma que temos para mais tarde nos referirmos ao elemento.</li>
-	<li>A tag <b>button</b>, como o prÛprio nome indica, È um bot„o em que podemos carregar. Por default n„o faz nada.</li>
-	<li>A tag <b>script</b> que È onde vai ficar o nosso cÛdigo javascript.</li>
+	<li> A tag <b>title</b>, o t√≠tulo da pagina que aparece no topo do browser. </li>
+	<li>A tag <b>h1</b> √© um t√≠tulo e por isso aparece num tamanho de fonte maior. Tem como <b>id</b> o valor "text". O id √© uma forma que temos para mais tarde nos referirmos ao elemento.</li>
+	<li>A tag <b>button</b>, como o pr√≥prio nome indica, √© um bot√£o em que podemos carregar. Por default n√£o faz nada.</li>
+	<li>A tag <b>script</b> que √© onde vai ficar o nosso c√≥digo javascript.</li>
 </ul>
 
-<p>Tudo o que est· dentro da tag script È lido como javascript e È executado imediatamente, linha a linha por ordem quando o browser a lÍ.</p>
+<p>Tudo o que est√° dentro da tag script √© lido como javascript e √© executado imediatamente, linha a linha por ordem quando o browser a l√™.</p>
 
 
 
 <br>
 <h3>Entrando no Javascript</h3>
 
-<p>Vamos escrever a nossa primeira linha de cÛdigo em javascript. Coloque este cÛdigo dentro da tag script:</p>
+<p>Vamos escrever a nossa primeira linha de c√≥digo em javascript. Coloque este c√≥digo dentro da tag script:</p>
 
 <pre><code class="html">&lt;script&gt;
 	alert(&quot;Hello World!&quot;);
 &lt;/script&gt;
 </code></pre>
 
-<p>Este codigo chama a funÁ„o "alert" que apresenta um pedaÁo de texto numa janela. Se gravar o ficheiro e recarregar a p·gina dever· aparecer uma janela a dizer "Hello World!".</p>
+<p>Este codigo chama a fun√ß√£o "alert" que apresenta um peda√ßo de texto numa janela. Se gravar o ficheiro e recarregar a p√°gina dever√° aparecer uma janela a dizer "Hello World!".</p>
 
 <img src="images/rock-paper-scissors-2.png"></img>
 
-<h3> Testar o bot„o </h3>
+<h3> Testar o bot√£o </h3>
 
-<p>Agora, para experimentar o seu funcionamento, vamos fazer com que a janela apareÁa quando carregamos no bot„o. </p>
-<p>Vamos primeiro criar uma funÁ„o que ser· executada quando se carrega no bot„o:</p>
+<p>Agora, para experimentar o seu funcionamento, vamos fazer com que a janela apare√ßa quando carregamos no bot√£o. </p>
+<p>Vamos primeiro criar uma fun√ß√£o que ser√° executada quando se carrega no bot√£o:</p>
 
 <pre><code class="html">&lt;script&gt;
 	// Piece of code that executes when the &quot;go&quot; button is clicked	
@@ -102,41 +102,41 @@
 &lt;/script&gt;
 </code></pre>
 
-<p>Uma funÁ„o È um pedaÁo de codigo que efetua uma determinada tarefa. Uma funÁ„o È executada quando "alguma coisa" a chama ou invoca.</p>
+<p>Uma fun√ß√£o √© um peda√ßo de codigo que efetua uma determinada tarefa. Uma fun√ß√£o √© executada quando "alguma coisa" a chama ou invoca.</p>
 
-<p> Criar uma funÁ„o separada n„o era estritamente necess·rio mas aqui vai ajudar a que o cÛdigo fique mais organizado.</p>
+<p> Criar uma fun√ß√£o separada n√£o era estritamente necess√°rio mas aqui vai ajudar a que o c√≥digo fique mais organizado.</p>
 
-<p> A linha que comeÁa com "//" È um coment·rio. N„o faz nada, apenas serve para efeitos de organizaÁ„o e documentaÁ„o.</p>
+<p> A linha que come√ßa com "//" √© um coment√°rio. N√£o faz nada, apenas serve para efeitos de organiza√ß√£o e documenta√ß√£o.</p>
 
-<p>Agora queremos que a nossa funÁ„o seja invocada quando o bot„o È clicado. A maneira mais f·cil de fazer isso È mexendo no html que j· tÌnhamos:</p>
+<p>Agora queremos que a nossa fun√ß√£o seja invocada quando o bot√£o √© clicado. A maneira mais f√°cil de fazer isso √© mexendo no html que j√° t√≠nhamos:</p>
 
 <pre><code class="html">&lt;button onclick=&quot;clicked()&quot;&gt;Go&lt;/button&gt;
 </code></pre>
 
-<p>Acrescentamos a propriedade onclick ‡ tag button que executa o que est· entre aspas como javascript quando carregamos no bot„o. Neste caso invoca a funÁ„o "clicked".</p>
+<p>Acrescentamos a propriedade onclick √† tag button que executa o que est√° entre aspas como javascript quando carregamos no bot√£o. Neste caso invoca a fun√ß√£o "clicked".</p>
 
-<p>Se recarregar a p·gina agora dever· aparecer a mesma janela quando se carrega no bot„o "Go".</p>
+<p>Se recarregar a p√°gina agora dever√° aparecer a mesma janela quando se carrega no bot√£o "Go".</p>
 
 
 
 <br>
-<h3> Vamos tirar ‡ sorte </h3>
+<h3> Vamos tirar √† sorte </h3>
 
-<p>Vamos agora implementar o jogo propriamente dito. J· temos uma funÁ„o (um pedaÁo de cÛdigo) que È chamada sempre que se carrega no bot„o. Agora temos de escolher aleatoriamente que palavra È que vamos mandar e arranjar maneira de o mostrar no ecr„.</p>
+<p>Vamos agora implementar o jogo propriamente dito. J√° temos uma fun√ß√£o (um peda√ßo de c√≥digo) que √© chamada sempre que se carrega no bot√£o. Agora temos de escolher aleatoriamente que palavra √© que vamos mandar e arranjar maneira de o mostrar no ecr√£.</p>
 
-<p>Vamos comeÁar por criar uma lista, tambÈm chamada array, das palavras possÌveis.</p>
+<p>Vamos come√ßar por criar uma lista, tamb√©m chamada array, das palavras poss√≠veis.</p>
 
 <pre><code class="javascript">// Array of words to choose from
 var values = ['Rock', 'Paper', 'Scissors'];
 </code></pre>
 
-<p>Com a execuÁ„o desta linha de cÛdigo "values" È agora uma <b>vari·vel</b> onde est· guardada a lista de palavras.</p>
+<p>Com a execu√ß√£o desta linha de c√≥digo "values" √© agora uma <b>vari√°vel</b> onde est√° guardada a lista de palavras.</p>
 
-<p>De seguida vamos escolher uma das palavras. Para isso escolhemos aleatoriamente um Ìndice do array (por ex. 1, 2 ou 3). PorÍm, na maioria das linguagens de programaÁ„o, incluindo javascript, os Ìndices comeÁam em 0 em vez de 1 porque facilita muitas operaÁıes por isso vamos ter de escolher um Ìndice entre 0 e 2. Depois poderemos aceder ao elemento correspondente ao Ìndice da seguinte forma:
+<p>De seguida vamos escolher uma das palavras. Para isso escolhemos aleatoriamente um √≠ndice do array (por ex. 1, 2 ou 3). Por√™m, na maioria das linguagens de programa√ß√£o, incluindo javascript, os √≠ndices come√ßam em 0 em vez de 1 porque facilita muitas opera√ß√µes por isso vamos ter de escolher um √≠ndice entre 0 e 2. Depois poderemos aceder ao elemento correspondente ao √≠ndice da seguinte forma:
 
 <pre><code class="javascript">values[1] = 'Paper'</code></pre>
 
-<p>Para fazer a escolha aleatoria vamos partir da funÁ„o Math.random() que devolve um numero decimal no intervalo [0,1[. Para o transformar num numero inteiro usamos a funÁ„o Math.floor() que arredonda para baixo. O codigo final que cria um indice aleatorio e coloca o respetivo elemento da lista numa vari·vel È o seguinte:</p>
+<p>Para fazer a escolha aleatoria vamos partir da fun√ß√£o Math.random() que devolve um numero decimal no intervalo [0,1[. Para o transformar num numero inteiro usamos a fun√ß√£o Math.floor() que arredonda para baixo. O codigo final que cria um indice aleatorio e coloca o respetivo elemento da lista numa vari√°vel √© o seguinte:</p>
 
 <pre><code class="javascript">// Choose a random integer between 0 (inclusive) and the length of the word list (exclusive)
 var index = Math.floor(Math.random()*values.length);
@@ -151,12 +151,12 @@ var result = values[index];
 <br>
 <h3> Mostrar o resultado </h3>
 
-<p>Resta sÛ colocar este valor no campo de texto. Para isso precisamos de um pouco de codigo para manipulaÁ„o do DOM HTML mas n„o vamos entrar em muito detalhe sobre ele. … basicamente como atribuir um valor a uma variavel.</p>
+<p>Resta s√≥ colocar este valor no campo de texto. Para isso precisamos de um pouco de codigo para manipula√ß√£o do DOM HTML mas n√£o vamos entrar em muito detalhe sobre ele. √â basicamente como atribuir um valor a uma variavel.</p>
 
 <pre><code class="javascript">// Set the content of the "text" element to the choosen result
 document.getElementById('text').innerHTML = result;</code></pre>
 
-<p>O aspeto final do nosso javascript e da funÁ„o clicked È o seguinte:</p>
+<p>O aspeto final do nosso javascript e da fun√ß√£o clicked √© o seguinte:</p>
 
 <pre><code class="html">&lt;script&gt;
 	// Piece of code that executes when the &quot;go&quot; button is clicked	
@@ -176,14 +176,26 @@ document.getElementById('text').innerHTML = result;</code></pre>
 	};
 &lt;/script&gt;</code></pre>
 
-<p> Se recarregarmos agora a pagina e carregarmos no bot„o "Go" dever· aparecer "Rock", "Paper" ou "Scissor" aleatoriamente. </p>
+<p> Se recarregarmos agora a pagina e carregarmos no bot√£o "Go" dever√° aparecer "Rock", "Paper" ou "Scissor" aleatoriamente. </p>
 
 <img src="images/rock-paper-scissors-3.png"></img>
 
+
+<br>
+<h2> Poss√≠veis Melhorias </h2>
+
+<p>Apesar de funcional ainda h√° trabalho que pode ser feito com este exemplo. Sugere-se os seguintes exercicios:</p>
+
+<ol>
+	<li>Escolha um novo tema e selecione tr√™s objetos que possam substituir os iniciais (rock, paper, scissor). Ter√° agora que justificar porque √© que cada um dos s√≠mbolos ganha ao outro... Coloque este texto como instru√ß√µes do jogo, atrav√©s da tag &lt;p&gt;&lt;/p&gt; no ficheiro html.</li>
+	<br>
+    <li>Fa√ßa agora um jogo para o lan√ßamento da moeda ("cara" / "coroa"). Agora apenas tem dois estados. Crie um novo ficheiro para este novo jogo, criando o c√≥digo de raiz, de acordo com o que aprendeu a construir este jogo</li>
+</ol>
+
 <br>
 <br>
 <br>
-<a href="./">Õndice</a>
+<a href="./">√çndice</a>
 <br>
 <br>
 
