@@ -7,21 +7,36 @@
 		<h1 id="text"></h1>
 	</body>
 	
-	<script>		
+	<script>
+		// Function that finds the number the player is thinking about
+		// It takes 2 parameters: the minimum value that number can have and the maximum
 		function findNumber(min, max) {
+			// If the minimum and maximum value are the same we have found the number
 			if (min == max) {
+				// Display the number in the page
 				document.getElementById("text").innerHTML = "Your number is " + max;
-			} else {
+			} 
+			// Else, we need to ask the player another question to find out what the number is
+			else {
+				// First we get the mid point between the min and max value
+				// We floor it to ensure it is a integer value
 				var midPoint = Math.floor((min+max)/2);
 			
+				// Then we ask the question: "Is your number larger than the mid point?"
 				if (confirm("Your number is larger than " + midPoint)) {
-					findNumber(midPoint+1,max);
+					// If it is, the new minimum value is the number just above the mid point
+					min = midPoint+1;
 				} else {
-					findNumber(min, midPoint);
+					// Otherwise, the number is smaller or equal to the mid point so the new maximum value is the mid point itself
+					max = midPoint;
 				}
+				
+				// After the question we call this function again, recursively with the updated min and max values
+				findNumber(min,max);
 			}
 		}
 		
+		// Ask the player to think of a number and call findNumber for the first time.
 		alert("Think of an number between 1 and 100.");
 		findNumber(1,100);
 	</script>
