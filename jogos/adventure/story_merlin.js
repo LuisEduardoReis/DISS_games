@@ -41,7 +41,7 @@ story["6"] = { text: "Ups! Não era o porco, era o dono da quinta que estava aba
 	a_text:"Tentas petrificá-lo com um feitiço",
 	a_target:"10",
 	b_text:"Mandas o dragão assustá-lo",
-	b_target:"11"
+	b_target:"12"
 }
 
 story["7"] = { text: "Boa! Agora já tens comida para o teu dragão e é mais fácil de o domesticar. Depois de lhe dares um bocado, resolves batizar o dragão. Que nome lhe dás? ",
