@@ -1,0 +1,69 @@
+<?php 
+	include_once('../../../log/init.php');
+	commit_log('diss-adventure');
+?>
+<html>
+	<head>
+		<title>Adventure</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />		
+	</head>
+	
+	<body>
+		<p id="text"></p>
+		<button id="button_a" onclick="loadState(current_state.a_target);"></button>
+		<button id="button_b" onclick="loadState(current_state.b_target);"></button>
+	</body>
+	
+	<script src="jquery-3.2.1.min.js"></script>
+	
+	<script src="story_merlin.js" content="charset=UTF-8"></script>
+	<!--<script src="story_demo.js"></script>-->
+	<script>
+		var current_state;		
+		var path = [];
+		
+		var textElement = document.getElementById("text");
+		var buttonAElement = document.getElementById("button_a"); 
+		var buttonBElement = document.getElementById("button_b");	
+		
+		
+		
+		function loadState(state) {
+			current_state = story[state];
+			
+			if (current_state) {			
+				path.push(state);
+			
+				textElement.innerHTML = current_state.text;
+				
+				if (current_state.a_text) {
+					buttonAElement.style.visibility = "visible";
+					buttonAElement.innerHTML = current_state.a_text;
+				} else {
+					buttonAElement.style.visibility = "hidden";
+				}
+				
+				if (current_state.b_text) {
+					buttonBElement.style.visibility = "visible";
+					buttonBElement.innerHTML = current_state.b_text;
+				} else {
+					buttonBElement.style.visibility = "hidden";
+				}
+				
+				if (!current_state.a_target && !current_state.b_target) {
+					$.ajax({
+						url:"log.php?data="+path
+					});
+				}
+			} else {
+				textElement.innerHTML = "Error! State "+state+" not found!"
+				textElement.style = "color: red;"
+				buttonAElement.style.visibility = "hidden";
+				buttonBElement.style.visibility = "hidden";
+			}
+			
+		}
+		
+		loadState("start");		
+	</script>
+</html>
