@@ -1,0 +1,42 @@
+Conteúdo
+
+Introdução
+- Contexto
+- Motivação geral
+- Objetivos
+- Estrutura do Documento
+
+Ensino do desenvolvimento de jogos e programação
+- Definição do problema
+- Questões de investigação
+- Perspetivas de solução
+- Trabalho relacionado
+- Perspetivas de validação
+
+Metodologias de ensino de programação e de jogos digitais
+- Ensino da programação
+	- Linguagens
+	- Exemplos de programas
+- Ensino dos jogos
+	- Componentes do ensino dos jogos
+- Uso de jogos no ensino
+	- Jogos didáticos
+	- Gamification
+- Tecnologias existentes para o desenvolvimento de jogos
+
+Framework para o desenvolvimento de um método hibrido de ensino da programação baseado em PBL
+	- Método de aprendizagem
+		E-learning/PBL/Ludificação
+		Ciclo Introdução-Jogo-Desafio/Onboarding-Scaffholding-EndGame
+		Encaixa bem num modelo de B-learning
+		
+	- Planeamento dos conteudos
+		- Topicos de aprendizagem escolhidos
+		- Framework (matriz de competencias)
+		- Sequencia e descrição de cada jogo (descrever o IJD para cada jogo)
+	- Metricas de validação
+	- Definir o plano de atividades
+
+Trabalho Futuro	
+	
+Referências

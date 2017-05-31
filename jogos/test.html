@@ -1,0 +1,122 @@
+<html>
+	<head>
+		<title>Derp</title>
+	</head>
+
+	<script src="p5.js"></script>
+	<script>
+var stars;
+
+
+function setup() {
+	createCanvas(320,320);
+				
+	/*
+		n = w/s * h/s
+		n = w*h / s*s
+	*/	
+	
+	stars = [];
+	var nstars = 100;
+	var sp = Math.floor(Math.sqrt(width*height/nstars));
+	var is = 0.5;
+	
+	for(var yy = 0; yy<=(width/sp); yy++)
+	for(var xx = 0; xx<=(height/sp); xx++)
+		stars.push({
+			x:xx*sp,
+			y:yy*sp,
+			vx:0,
+			vy:0,
+			ax:0,
+			ay:0,
+			b:255,
+			s:3 //Math.floor(Math.random()*5)
+		})
+}
+
+function da(t,X,V,A) {
+	var r = {x:0,y:0};
+	for(var ii = 0; ii < stars.length; ii++) {
+		var i = stars[ii];
+		var vx = (X.x-i.x), vy = (X.y-i.y);
+		var d2 = vx*vx + vy*vy;
+		if (d2 == 0) continue;
+		var d = Math.sqrt(d2);
+		
+		r.x += vx/d * i.s * G / d2;
+		r.y += vy/d * i.s * G / d2;	
+	}
+}
+function dv(t,X,V,A) {
+	return A;
+}
+
+function draw() {
+	background(0)
+	
+	var G = 0.1;
+	
+	for(var ii = 0; ii < stars.length; ii++) {
+	var i = stars[ii];
+	i.ax = 0;
+	i.ay = 0;
+	for(var oi = 0; oi < stars.length; oi++) {
+		if (ii == oi) continue;
+		var o = stars[oi];
+		var vx = (o.x-i.x), vy = (o.y-i.y);
+		var d2 = vx*vx + vy*vy;
+		var d = Math.sqrt(d2);
+		if (d == 0) continue;
+		i.ax += vx / d * o.s * G / d2;
+		i.ay += vy / d * o.s * G / d2;	
+	}}
+
+	var minx=0,miny=0,maxx=width,maxy=height;
+	for(var ii = 0; ii < stars.length; ii++) {
+		var i = stars[ii];
+		minx = Math.min(minx,i.x)
+		miny = Math.min(miny,i.y)
+		maxx = Math.max(maxx,i.x)
+		maxy = Math.max(maxy,i.y)
+	}
+	
+	noStroke()
+	fill(255)
+	text(""+Math.floor((maxx - minx)/width),10,10);
+	
+	noStroke();
+	fill(255)
+	for(var i = 0; i < stars.length; i++) {
+		var s = stars[i];
+		
+		var h = 0.1;
+		s.vx += h*s.ax;
+		s.vy += h*s.ay;
+		
+		s.x += h*s.vx;
+		s.y += h*s.vy;
+
+		//s.x %= width; if(s.x<0) s.x = width-s.x;
+		//s.y %= height; if(s.y<0) s.y = height-s.y;
+				
+		fill(255,255,255,s.b)
+		ellipse(
+			(s.x-minx)*width/(maxx-minx),
+			(s.y-miny)*height/(maxy-miny),
+			(s.s+10),//*width/(maxx-minx),
+			(s.s+10))//*height/(maxy-miny))
+	}
+	
+	noFill()
+	stroke(255,0,0)
+	rect(
+		-minx*width/(maxx-minx),
+		-miny*height/(maxy-miny),
+		width*width/(maxx-minx),
+		height*height/(maxy-miny)
+	)
+
+}
+	</script>
+</html>

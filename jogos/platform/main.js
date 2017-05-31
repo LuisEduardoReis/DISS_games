@@ -1,5 +1,6 @@
 var TILE_SIZE = 32; 
 var levelImage;
+var jumpSound;
 
 var level;
 var player;
@@ -7,6 +8,7 @@ var test = false;
 
 function preload() {
 	levelImage = loadImage("map.bmp");
+	jumpSound = loadSound("jump.wav");
 }
 
 function setup() {

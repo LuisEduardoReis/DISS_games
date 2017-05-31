@@ -22,7 +22,10 @@ function Player(level) {
 			Math.floor(this.x/TILE_SIZE), 
 			Math.floor((this.y+this.radius+1)/TILE_SIZE)
 		);		
-		if (keyIsDown(UP_ARROW) && tileUnderfoot.solid) this.dy = JUMP_SPEED;
+		if (keyIsDown(UP_ARROW) && tileUnderfoot.solid) {
+			jumpSound.play();
+			this.dy = JUMP_SPEED;
+		}
 		
 		// Move left and right
 		if (keyIsDown(LEFT_ARROW)) this.dx = -MOVE_SPEED;

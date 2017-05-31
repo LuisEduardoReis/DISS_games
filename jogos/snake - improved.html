@@ -1,0 +1,121 @@
+<html>
+	<head>
+		<title>Snake</title>
+	</head>
+
+	<script src="p5.js"></script>
+	<script>
+		// Variables
+		var snake = {};
+		var food = {};
+		var cellSize = 16, cellW = 32, cellH = 24;
+		
+		// Function to place food in a random position
+		function placeFood() {
+			var valid = false;
+			while(!valid) { // Do this until a valid position is found
+				food.x = Math.floor(random(1,cellW-1));
+				food.y = Math.floor(random(1,cellH-1));
+				
+				valid = true; // Assume it's valid
+				// Iterate through the snake and check if its body
+				for(var i = 0; i < snake.body.length; i++)
+					if (food.x == snake.body[i].x && food.y == snake.body[i].y) 
+						valid = false;
+			}
+		}
+		
+		function restart() {			
+			// Initialize the snake
+			snake.dead = false; // Starts alive
+			snake.body = []; // It has a body which is a list
+			snake.body.push(createVector(cellW/2, cellH/2)); // The first element is the snake's head, a vector with its position on the grid
+			snake.direction = createVector(1,0); // The snake has a direction vector (the direction in which it moves)
+			snake.length = 3; //It has a length that is used to limit the size of the body
+			
+			// Place the first food
+			placeFood();
+		}
+		
+		function setup() {
+			createCanvas(cellSize*cellW, cellSize*cellH);
+			
+			// Set a low frame rate to slow down the snake
+			frameRate(6);
+			
+			restart();			
+		}
+		
+		function keyPressed() {
+			// Update direction
+			// If the snake is moving left or right it can move up or down
+			if (snake.direction.x != 0) {
+				if (keyCode == UP_ARROW) snake.direction = createVector(0,-1); 
+				else if (keyCode == DOWN_ARROW) snake.direction = createVector(0,1);
+			} 
+			// Else, if the snake is moving up or down it can move left or right
+			else {
+				if (keyCode == LEFT_ARROW) snake.direction = createVector(-1,0);
+				else if (keyCode == RIGHT_ARROW)snake.direction = createVector(1,0);
+			}
+			
+			if (keyCode == 82) restart();			
+		}
+		
+		function draw() {
+		//Update
+			// If the snake is still alive
+			if (!snake.dead) {				
+				// Move snake. Its new head is in the position of the last plus the direction vector
+				snake.body.unshift({
+					x: snake.body[0].x + snake.direction.x,
+					y: snake.body[0].y + snake.direction.y
+				});
+				
+				// Eat food if its on the snake's head
+				if (food.x == snake.body[0].x && food.y == snake.body[0].y) {
+					snake.length+=2;
+					placeFood();
+				}
+				
+				// Pop the snake's butt
+				if (snake.body.length > snake.length) snake.body.pop();
+			}
+			
+			// Check for death by impact with borders
+			if (snake.body[0].x < 1 ||
+				snake.body[0].x >= cellW-1 ||
+				snake.body[0].y < 1 || 
+				snake.body[0].y >= cellH-1)
+				snake.dead = true;
+			// Check for death by intersection with body
+			for(var i = 1; i < snake.body.length; i++)
+				if (snake.body[0].x == snake.body[i].x &&
+					snake.body[0].y == snake.body[i].y)
+					snake.dead = true;
+			
+		//Draw
+			background(0,0,0);
+			noStroke();
+			
+			// Borders
+			fill(255,255,255);
+			for(var y = 0; y < cellH; y++)
+			for(var x = 0; x < cellW; x++)
+			if (x == 0 || y == 0 || x == cellW-1 || y==cellH-1)
+				rect(x*cellSize, y*cellSize, cellSize,cellSize);
+
+			// Food	
+			fill(255,255,0);
+			rect(food.x*cellSize, food.y*cellSize, cellSize, cellSize);
+			
+			// Snake
+			for(var i = snake.body.length-1; i >= 0; i--) {
+				if (snake.dead && i == 0) fill(255,0,0);
+				else fill(255,255,255);
+			
+				rect(snake.body[i].x*cellSize,snake.body[i].y*cellSize,cellSize,cellSize);
+			}		
+		}
+	</script>
+</html>

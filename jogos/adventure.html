@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Adventure</title>		
+	</head>
+	
+	<body>
+		<p id="text"></p>
+		<button id="button_a" onclick="loadState(current_state.a_target);"></button>
+		<button id="button_b" onclick="loadState(current_state.b_target);"></button>
+	</body>
+	
+	<script src="story_merlin.js"></script>
+	<!--<script src="story_demo.js"></script>-->
+	<script>
+		var current_state;		
+		
+		var textElement = document.getElementById("text");
+		var buttonAElement = document.getElementById("button_a"); 
+		var buttonBElement = document.getElementById("button_b");	
+		
+		
+		
+		function loadState(state) {
+			current_state = story[state];
+			
+			if (current_state) {			
+				textElement.innerHTML = current_state.text;
+				
+				if (current_state.a_text) {
+					buttonAElement.style.visibility = "visible";
+					buttonAElement.innerHTML = current_state.a_text;
+				} else {
+					buttonAElement.style.visibility = "hidden";
+				}
+				
+				if (current_state.b_text) {
+					buttonBElement.style.visibility = "visible";
+					buttonBElement.innerHTML = current_state.b_text;
+				} else {
+					buttonBElement.style.visibility = "hidden";
+				}
+			} else {
+				textElement.innerHTML = "Error! State "+state+" not found!"
+				textElement.style = "color: red;"
+				buttonAElement.style.visibility = "hidden";
+				buttonBElement.style.visibility = "hidden";
+			}
+			
+		}
+		
+		loadState("start");		
+	</script>
+</html>

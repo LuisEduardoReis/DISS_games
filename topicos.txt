@@ -1,0 +1,14 @@
+
+
+E-book
+
+1. Introdução
+2. Estado da Arte
+3. Framework para o desenvolvimento de um livro de ensino da programação (PBL)
+	3.1 Contextualização PBL
+	3.2 Planeamento dos conteudos
+	3.3 Metricas de validação
+	3.4 Definir o plano de atividades
+	
+	
+	
