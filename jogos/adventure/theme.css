@@ -1,0 +1,36 @@
+
+html { 
+	background: url(background.jpg) no-repeat center center fixed; 
+	background-size: cover;
+  
+	font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+
+body {
+	margin-top: 10%;
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+#text {
+	font-size: 25px;	
+	
+	padding: 75px;
+	
+	background-color: #F8F8F8;
+	border: solid #E0E0E0 15px;
+}
+
+button {
+	font-size: 25px;
+	padding: 30px;
+	
+	background-color: #F8F8F8;
+	border: solid #E0E0E0 15px;
+	outline: none;
+	
+	width: 100%;
+	
+	margin-bottom: 30px;
+}

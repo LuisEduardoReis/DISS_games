@@ -61,7 +61,7 @@ story["8"] = { text: "Ups! Não era o porco, era o dono da quinta que estava aba
 story["9"] = { text: "Fizeste bem em praticar! O porco vem direitinho até a ti e o teu cão salta de alegria! Salta tanto que quase te chega aos joelhos! No entanto, convém não demorares muito tempo em comemorações pois a viagem ainda é longa. Para chegares à caldeira tens dois caminhos:",
 	a_text:"Um desfiladeiro seguro mas muito longo",
 	a_target:"14",
-	b_text:"Um caminho antigo pelo meio da floresta que já não é usado à 5000 anos.",
+	b_text:"Um caminho antigo pelo meio da floresta que já não é usado há 5000 anos.",
 	b_target:"15"
 }
 
@@ -75,7 +75,7 @@ story["10"] = { text: "Fizeste bem em praticar!  Agora já tens comida para o te
 story["11"] = { text: "O teu cão tem mais medo que tu e fugiu para um arbusto. O homem apanhou-te e levaste um grande sermão. 2 horas depois já podes voltar para a tua viagem. Para chegares à caldeira tens dois caminhos:",
 	a_text:"Um desfiladeiro seguro mas muito longo",
 	a_target:"14",
-	b_text:"Um caminho antigo pelo meio da floresta que já não é usado à 5000 anos.",
+	b_text:"Um caminho antigo pelo meio da floresta que já não é usado há 5000 anos.",
 	b_target:"15"
 }
 
@@ -90,7 +90,7 @@ story["11b"] = { text: "Boa conseguiste correr com o homem e fanaste um porco. A
 story["12"] = { text: "O teu dragão não gostou muito e lançou-te uma pequena labareda. Depois de apagares o fogo do teu cabelo, precisas de voltar para a viagem. Para chegares à caldeira tens dois caminhos:",
 	a_text:"Um desfiladeiro seguro mas muito longo",
 	a_target:"16",
-	b_text:"Um caminho antigo pelo meio da floresta que já não é usado à 5000 anos.",
+	b_text:"Um caminho antigo pelo meio da floresta que já não é usado há 5000 anos.",
 	b_target:"17"
 }
 
