@@ -41,7 +41,7 @@ story["6"] = { text: "Ups! Não era o porco, era o dono da quinta que estava aba
 	a_text:"Tentas petrificá-lo com um feitiço",
 	a_target:"10",
 	b_text:"Mandas o dragão assustá-lo",
-	b_target:"12"
+	b_target:"11b"
 }
 
 story["7"] = { text: "Boa! Agora já tens comida para o teu dragão e é mais fácil de o domesticar. Depois de lhe dares um bocado, resolves batizar o dragão. Que nome lhe dás? ",
@@ -78,6 +78,14 @@ story["11"] = { text: "O teu cão tem mais medo que tu e fugiu para um arbusto. 
 	b_text:"Um caminho antigo pelo meio da floresta que já não é usado à 5000 anos.",
 	b_target:"15"
 }
+
+story["11b"] = { text: "Boa conseguiste correr com o homem e fanaste um porco. Agora já tens comida para o teu dragão e é mais fácil de o domesticar. Depois de lhe dares um bocado, resolves batizar o dragão. Que nome lhe dás?",
+	a_text:"Bobby",
+	a_target:"12",
+	b_text:"Smaug",
+	b_target:"13"
+}
+
 
 story["12"] = { text: "O teu dragão não gostou muito e lançou-te uma pequena labareda. Depois de apagares o fogo do teu cabelo, precisas de voltar para a viagem. Para chegares à caldeira tens dois caminhos:",
 	a_text:"Um desfiladeiro seguro mas muito longo",
