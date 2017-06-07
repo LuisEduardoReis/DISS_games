@@ -20,7 +20,7 @@
 			// Flip the direction the ball is going
 			ball.vx = -ball.vx; 
 			// Reset the ball's vertical speed
-			ball.vy = 0;
+			ball.vy = random(-ballSpeed,ballSpeed);
 		}
 		
 		// Function to check if a given point is inside a given rectangle
@@ -30,11 +30,7 @@
 			return overlaps_x && overlaps_y;
 		}
 		
-		function stepTo(a,b,x) {
-			if (Math.abs(b-a) < x) return b;
-			else return a + Math.sign(b-a)*x;
-		} 
-		
+		// Initialization
 		function setup() {
 			createCanvas(480,320);
 			
@@ -53,13 +49,15 @@
 			padRight.x = width - 32 - padRight.w;
 			padRight.y = height/2 - padRight.h/2;
 			
-			// Reset the score
+			// Init the score
 			padLeft.score = 0;
 			padRight.score = 0;
 		}
 		
+		// Game Cycle
 		function draw() {
-		// Update
+		// Game Logic
+		
 			// Ball movement
 			ball.x += ball.vx;
 			ball.y += ball.vy;
@@ -70,8 +68,10 @@
 			
 			// AI opponent
 			if (ball.x < width/2) {
-				var target = padLeft.h/2;
-				padLeft.y = stepTo(padLeft.y + target,ball.y,padSpeed) - target;			
+				var targetY = ball.y - padLeft.h/2;
+				if (Math.abs(targetY - padLeft.y) <= padSpeed) {padLeft.y = targetY;}
+				else if (targetY > padLeft.y) {padLeft.y += padSpeed;}
+				else if (targetY < padLeft.y) {padLeft.y -= padSpeed;}
 			}
 			
 			// Ball Bounds
@@ -99,26 +99,25 @@
 				ball.vx = -ball.vx; 
 				// Set a new vertical speed based on where the ball hit on the pad
 				ball.vy =  map(ball.y - padRight.y, 0,padRight.h, -ballSpeed,ballSpeed);
-
-				padRight.target = random(padRight.h);				
 			}
 			// Left pad
 			if (ball.vx < 0 && pointInsideRectangle(ball.x, ball.y, padLeft.x,padLeft.y,padLeft.w,padLeft.h)) {
 				// Same as above
 				ball.vx = -ball.vx;
-				ball.vy = map(ball.y - padLeft.y, 0,padLeft.h, -ballSpeed,ballSpeed); 
-				
-				padLeft.target = random(padLeft.h);
+				ball.vy = map(ball.y - padLeft.y, 0,padLeft.h, -ballSpeed,ballSpeed);
 			}
 		
 			
-		// Draw
+		// Output devices
 			background(0,0,0);
 			// Ball
+			fill(255,255,0);
 			ellipse(ball.x, ball.y, 16, 16);
 			
 			// Pads
+			fill(255,0,0);
 			rect(padLeft.x, padLeft.y, padLeft.w, padLeft.h);
+			fill(0,0,255);
 			rect(padRight.x, padRight.y, padRight.w, padLeft.h);
 			
 			// Score
