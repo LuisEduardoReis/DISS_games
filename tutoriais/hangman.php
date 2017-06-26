@@ -298,7 +298,7 @@ word = newWord;
 
 
 <br>
-<h2> Possíveis Melhorias </h2>
+<h2> Desafios! </h2>
 
 <p>Apesar de funcional, o nosso enforcado ainda tem espaço para melhorias. Para além de adicionar mais palavras propomos que implemente as seguintes melhorias:</p>
 
