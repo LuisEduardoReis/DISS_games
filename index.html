@@ -1,0 +1,103 @@
+<link rel="stylesheet" type="text/css" href="css.css">
+<script src="jquery-3.2.1.min.js"></script>
+
+
+<div class="game-line">
+	<div class="level-tag">Level 1</div>
+	
+	<div class="game" href="jogos/rock_paper_scissors.html">
+		<h3 class="game-header"> 1 </h3>
+		
+		<p>Rock Paper Scissors</p>
+		<p><a href="tutoriais/rock_paper_scissors.html">Tutorial</a></p>		
+	</div>
+</div>
+
+<div class="game-line">
+	<div class="level-tag">Level 2</div>
+
+	<div class="game" href="jogos/guess_the_number.html">
+		<h3 class="game-header"> 2 </h3>
+		
+		<p>Guess the Number</p>
+		<p style="visibility:hidden"><strike>Tutorial</strike></p>
+	</div>
+	
+	<div class="game" href="jogos/adventure/">
+		<h3 class="game-header"> 3 </h3>
+		
+		<p>Adventure</p>
+		<p style="visibility:hidden"><strike>Tutorial</strike></p>
+	</div>
+</div>
+
+<div class="game-line">
+	<div class="level-tag">Level 3</div>
+
+	<div class="game" href="jogos/hangman.html">
+		<h3 class="game-header"> 4 </h3>
+		
+		<p>Hangman</p>
+		<p><a href="tutoriais/hangman.html">Tutorial</a></p>		
+	</div>
+	
+	<div class="game" href="jogos/snake.html">
+		<h3 class="game-header"> 5 </h3>
+		
+		<p>Snake</p>
+		<p style="visibility:hidden"><strike>Tutorial</strike></p>
+	</div>
+	
+	<div class="game" href="jogos/pong.html">
+		<h3 class="game-header"> 6 </h3>
+		
+		<p>Pong</p>
+		<p><a href="tutoriais/pong.html">Tutorial</a></p>		
+	</div>
+</div>
+
+<div class="game-line">
+	<div class="level-tag">Level 4</div>
+
+	<div class="game" href="jogos/space-invaders">
+		<h3 class="game-header"> 7 </h3>
+		
+		<p>Space Invaders</p>
+		<p style="visibility:hidden"><strike>Tutorial</strike></p>		
+	</div>
+	
+	<div class="game" href="jogos/platform/">
+		<h3 class="game-header"> 8 </h3>
+		
+		<p>Platform</p>
+		<p style="visibility:hidden"><strike>Tutorial</strike></p>
+	</div>
+	
+	<div class="game" href="jogos/tic-tac-toe/">
+		<h3 class="game-header"> 9 </h3>
+		
+		<p>Tic Tac Toe (AI)</p>
+		<p style="visibility:hidden"><strike>Tutorial</strike></p>
+	</div>
+	
+	<div class="game" href="jogos/fps">
+		<h3 class="game-header"> 10 </h3>
+		
+		<p>FPS (Wolfenstein)</p>
+		<p style="visibility:hidden"><strike>Tutorial</strike></p>
+	</div>
+</div>
+
+<br>
+<br>
+
+<div class="game-line">
+	<p><a class="big-link" href="tutoriais">Lista de Tutoriais</a></p>
+</div>
+
+<script>
+	$('.game').click(function(e) {
+		window.location.href = $(this).attr('href');
+	});
+	
+</script>
